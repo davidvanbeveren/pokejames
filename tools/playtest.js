@@ -14,7 +14,9 @@ leaveInterior(); if (G.map.id !== 'pallet') fail('house exit failed');
 log('== professor');
 const trig = findObj(o => o.type === 'trigger' && o.script === 'prof_stop'); goTo(trig.x, trig.y); settle();
 if (G.map.id !== 'lab') fail('prof cutscene did not lead to lab (' + G.map.id + ')');
-const basket = findObj(o => o.type === 'interact' && o.script === 'pick_starter'); goTo(basket.x, basket.y + 1); faceAndPress(basket.x, basket.y);
+// the starters are ball items on the table now, and OAT has already walked you over
+const basket = findObj(o => o.script === 'pick_starter');
+goTo(basket.x, basket.y + 1); settle(); faceAndPress(basket.x, basket.y); settle();
 log('starter:', party(), 'flags', Object.keys(G.state.flags).join(','), 'money', G.state.money);
 if (!G.state.party.length) fail('no starter received');
 leaveInterior(); if (G.map.id !== 'pallet') fail('lab exit failed');

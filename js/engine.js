@@ -188,11 +188,12 @@
 
   // ---------- input ----------
   const KEYMAP = { ArrowUp: 'up', KeyW: 'up', ArrowDown: 'down', KeyS: 'down', ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right', KeyD: 'right',
-    KeyZ: 'a', Space: 'a', KeyK: 'a', KeyX: 'b', Backspace: 'b', KeyJ: 'b', Enter: 'start', Escape: 'start', ShiftLeft: 'select', ShiftRight: 'select', Tab: 'select' };
+    KeyZ: 'a', Space: 'a', KeyK: 'a', KeyX: 'b', Backspace: 'b', KeyJ: 'b', Enter: 'start', Escape: 'back', ShiftLeft: 'select', ShiftRight: 'select', Tab: 'select' };
   const held = {}, pressed = {}, heldFrames = {};
   const Input = G.input = {
     held: k => !!held[k],
-    pressed: k => !!pressed[k],
+    pressed: k => !!pressed[k] || (k === 'b' && !!pressed.back),   // ESC backs out of menus like B
+
     heldFrames: k => heldFrames[k] || 0,
     // menu-style repeat: fires on press, then every 6 frames after 14 held frames
     repeat: k => pressed[k] || (held[k] && heldFrames[k] > 14 && (heldFrames[k] % 6 === 0)),
@@ -202,7 +203,7 @@
     clear: () => { for (const k in pressed) pressed[k] = false; },
   };
   const KEYMAP_KEY = { ArrowUp: 'up', w: 'up', W: 'up', ArrowDown: 'down', s: 'down', S: 'down', ArrowLeft: 'left', a: 'left', A: 'left', ArrowRight: 'right', d: 'right', D: 'right',
-    z: 'a', Z: 'a', ' ': 'a', k: 'a', K: 'a', x: 'b', X: 'b', Backspace: 'b', j: 'b', J: 'b', Enter: 'start', Escape: 'start', Shift: 'select', Tab: 'select' };
+    z: 'a', Z: 'a', ' ': 'a', k: 'a', K: 'a', x: 'b', X: 'b', Backspace: 'b', j: 'b', J: 'b', Enter: 'start', Escape: 'back', Shift: 'select', Tab: 'select' };
   const keyOf = e => KEYMAP[e.code] || KEYMAP_KEY[e.key];
   G.toast = null;
   const MUTE_KEY = 'hacktivists_muted';
@@ -736,7 +737,7 @@
     const sign = G.map.objects.find(o => o.type === 'sign' && o.x === fx && o.y === fy);
     if (sign) { G.runScript(SCRIPTS.readSign(sign)); return; }
     const item = G.map.objects.find(o => o.type === 'item' && o.x === fx && o.y === fy && !G.state.picked[o.id]);
-    if (item) { G.runScript(SCRIPTS.pickItem(item)); return; }
+    if (item) { const g = (item.script && SCRIPTS[item.script]) ? SCRIPTS[item.script](item) : SCRIPTS.pickItem(item); if (g) G.runScript(g); return; }
     const obj = G.map.objects.find(o => o.type === 'interact' && o.x === fx && o.y === fy);
     if (obj) { const gen = SCRIPTS[obj.script] ? SCRIPTS[obj.script](obj) : SCRIPTS.readSign(obj); if (gen) G.runScript(gen); return; }
     const td = G.tileDef(fx, fy);

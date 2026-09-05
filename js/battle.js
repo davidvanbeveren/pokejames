@@ -33,8 +33,8 @@
         const maxName = Math.floor((VW - 72) / 8);
         G.drawText(S.enemyName.length > maxName ? S.enemyName.slice(0, maxName) : S.enemyName, 8, 6);
         G.drawText('L' + S.enemy.level, 8, 16);
-        if (S.kind === 'wild') { UI.drawHPBar(40, 18, 48, S.trustShown / 100, { fill: G.era === 0 ? undefined : '#e060a0' }); G.drawText('TRUST', 8, 26); }
-        else { UI.drawHPBar(40, 18, 48, S.enemyHpShown / S.enemyMaxHp); G.drawText('WILL', 8, 26); }
+        if (S.kind === 'wild') UI.drawHPBar(40, 18, 48, S.trustShown / 100, { fill: G.era === 0 ? undefined : '#e060a0' });
+        else UI.drawHPBar(40, 18, 48, S.enemyHpShown / S.enemyMaxHp);
         G.fillRect(8, 35, 88, 1, G.era === 0 ? G.DMG[0] : '#000000');
       }
       // player side

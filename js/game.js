@@ -62,6 +62,34 @@
     }
     G.faceEach(e, G.player); G.faceEach(G.player, e);
   };
+  // Walk an entity to a tile, stepping around whatever is in the way and giving up
+  // if it cannot get closer (someone standing on the target, usually).
+  S.walkTo = function* (e, tx, ty, maxSteps) {
+    let guard = 0;
+    while ((e.x !== tx || e.y !== ty) && guard++ < (maxSteps || 24)) {
+      const dx = tx - e.x, dy = ty - e.y;
+      const h = dx > 0 ? 'right' : dx < 0 ? 'left' : null;
+      const v = dy > 0 ? 'down' : dy < 0 ? 'up' : null;
+      const order = Math.abs(dx) > Math.abs(dy) ? [h, v] : [v, h];
+      let moved = false;
+      for (const d of order) if (d && G.startMove(e, d, { force: true })) { moved = true; break; }
+      if (!moved) break;
+      while (e.moving) yield null;
+    }
+  };
+  // Lead someone across a room: the follower steps into the tile the leader just
+  // left. (A moving entity occupies both its tiles, so they cannot step at once.)
+  S.leadAlong = function* (lead, dirs, follower) {
+    for (const d of dirs) {
+      const from = { x: lead.x, y: lead.y };
+      if (!G.startMove(lead, d, { force: true })) { lead.dir = d; continue; }
+      while (lead.moving) yield null;
+      const fx = from.x - follower.x, fy = from.y - follower.y;
+      const fd = fx === 1 ? 'right' : fx === -1 ? 'left' : fy === 1 ? 'down' : fy === -1 ? 'up' : null;
+      if (fd && G.startMove(follower, fd, { force: true })) { while (follower.moving) yield null; }
+    }
+  };
+
   S.trainerSpot = function* (e) {
     G.showEmote(e, 'emote_alert', 40); if (A()) A().sfx('exclaim');
     yield* G.wait(30);
@@ -296,8 +324,14 @@
     G.entities = G.entities.filter(e => e !== prof);
     G.loadMap('lab', 5, 8, 'up');
     const labProf = G.entities.find(e => e.id === 'prof');
-    if (labProf) { labProf.x = 5; labProf.y = 3; labProf.dir = 'down'; }
+    if (labProf) { labProf.x = 5; labProf.y = 7; labProf.dir = 'up'; }
     yield* G.fadeIn(16);
+    yield* say(['PROF. OAT: Come on through. They are right over here.']);
+    if (labProf) {
+      yield* S.leadAlong(labProf, ['up', 'left'], G.player);   // he leads, you follow him to the table
+      labProf.dir = 'up'; G.player.dir = 'up';
+      yield* G.wait(12);
+    }
     yield* say(['PROF. OAT: ' + G.state.name + '! Here, on the table, are 3 animals I rescued this morning.', 'They each need a home... and a friend. Go on! Choose one!']);
     G.flag('choose_starter', true);
     return true;
@@ -323,6 +357,7 @@
     const nn = yield* UI.yesNo(); G.pop(tb2);
     if (nn) a.nick = yield* UI.nameEntry(sp.name + "'s nickname?", sp.name, 8);
     G.state.party.push(a); G.state.dex.seen[o.species] = true; G.state.dex.rescued[o.species] = true;
+    G.state.picked[o.id] = true;                       // its ball leaves the table for good
     if (A()) A().sfx('rescue');
     yield* say([G.state.name + ' received ' + a.nick + '!']);
     G.flag('starter', true); G.flag('starter_species', o.species);
@@ -333,6 +368,17 @@
     if (rival) {
       if (A()) A().playMusic('rival');
       yield* say([G.state.rival + ': Ha! Then I\'ll take ' + rs + '!']);
+      const rBall = G.map.objects.find(x => x.type === 'item' && x.species === rs);
+      if (rBall) {
+        yield* S.walkTo(rival, rBall.x, rBall.y + 1);    // up to the table
+        rival.dir = 'up';
+        yield* G.wait(16);
+        G.state.picked[rBall.id] = true;                 // and his ball is gone too
+        if (A()) A().sfx('pickup');
+        G.showEmote(rival, 'emote_heart', 40);
+        yield* G.wait(24);
+        yield* S.walkTo(rival, G.player.x, G.player.y + 1);
+      }
       G.faceEach(rival, G.player);
       yield* say([G.state.rival + ': ' + G.state.name + '! Let\'s see whose animal is happier! Come on, I\'ll take you on!']);
       const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 4, music: 'rival', taunt: 'Let\'s see whose animal is happier!', win: 'Okay, okay. Yours is happier. For now!' });

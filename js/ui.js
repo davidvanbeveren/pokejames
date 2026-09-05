@@ -26,7 +26,7 @@
     update() {
       if (this.closed || this.finished) { if (this.finished && this.opts.hold && G.input.pressed('a')) { /* stays */ } return; }
       // START (ESC) closes the whole conversation, mid-sentence or not.
-      if (G.input.pressed('start')) { this.finished = true; if (!this.opts.hold) this.closed = true; if (A()) A().sfx('cancel'); return; }
+      if (G.input.pressed('back') || G.input.pressed('start')) { this.finished = true; if (!this.opts.hold) this.closed = true; if (A()) A().sfx('cancel'); return; }
       const [l1, l2] = this.visible(); const total = l1.length + l2.length;
       if (this.shown < total) {
         const sp = G.state.options.textSpeed; // 0 slow 1 mid 2 fast

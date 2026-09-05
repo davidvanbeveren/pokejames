@@ -28,6 +28,7 @@ for (const s of ['back_hero', 'item_ball', 'emote_alert', 'emote_heart', 'shadow
 for (const [id, t] of Object.entries(TEAM)) for (const f of charFrames) if (!has(`${t.sprite}_${f}`)) P(`team ${id}: missing sprite ${t.sprite}_${f}`);
 // maps
 const walkable = (m, x, y) => { if (x < 0 || y < 0 || x >= m.w || y >= m.h) return false; const t = TILES[m.grid[y][x].base]; if (t.solid) return false; if (t.door && !(m.objects.some(o => o.type === 'warp' && o.x === x && o.y === y))) return false; return true; };
+const adjacentWalkable = (m, x, y) => [[0,1],[0,-1],[1,0],[-1,0]].some(([dx,dy]) => walkable(m, x+dx, y+dy));
 const mapIds = Object.keys(MAPS);
 const compiled = {};
 for (const id of mapIds) { try { compiled[id] = G.compileMap(id); } catch (e) { P(`map ${id}: compile failed: ${e.message}`); } }
@@ -75,11 +76,16 @@ for (const [id, m] of Object.entries(compiled)) {
       if (!d.dialog && !d.script && !d.trainer && !d.gift) N(`map ${id}: npc ${o.id || o.team} has no dialog`);
     }
     if (o.type === 'item') {
-      if (!DATA.ITEMS[o.item]) P(`map ${id}: item ${o.id} unknown item ${o.item}`);
+      // An item with its own `script` is a set piece (the starter balls on the lab
+      // table), not a bag pickup: it names no ITEM and may sit on furniture.
+      const scripted = !!o.script;
+      if (scripted && !SCRIPTS[o.script]) P(`map ${id}: item ${o.id} references missing script ${o.script}`);
+      if (!scripted && !DATA.ITEMS[o.item]) P(`map ${id}: item ${o.id} unknown item ${o.item}`);
       if (!o.id) P(`map ${id}: item at (${o.x},${o.y}) has no id`);
       if (o.item === 'VEGAN BEANS') { if (beanIds.has(o.id)) P(`duplicate bean id ${o.id}`); beanIds.add(o.id); }
       if (!walkable(m, o.x, o.y) && o.hidden) P(`map ${id}: hidden item ${o.id} on a solid tile (unreachable)`);
-      if (!o.hidden && !walkable(m, o.x, o.y)) P(`map ${id}: visible item ${o.id} on a solid tile`);
+      if (!scripted && !o.hidden && !walkable(m, o.x, o.y)) P(`map ${id}: visible item ${o.id} on a solid tile`);
+      if (scripted && !adjacentWalkable(m, o.x, o.y)) P(`map ${id}: item ${o.id} has no walkable tile beside it`);
     }
     if (o.type === 'trigger' && !SCRIPTS[o.script]) P(`map ${id}: trigger references missing script ${o.script}`);
     if (o.type === 'interact' && o.script && !SCRIPTS[o.script]) P(`map ${id}: interact references missing script ${o.script}`);
