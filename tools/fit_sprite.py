@@ -66,14 +66,17 @@ def resample(src, sw, sh, tw, th):
         for tx in range(tw):
             x0, x1 = int(tx * sw / tw), max(int(tx * sw / tw) + 1, int((tx + 1) * sw / tw))
             counts = collections.Counter()
+            clear = 0
             for y in range(y0, min(y1, sh)):
                 for x in range(x0, min(x1, sw)):
                     p = s[x, y]
-                    counts[p if p[3] >= 128 else None] += 1
-            best, n = counts.most_common(1)[0]
-            # a block that is mostly transparent stays transparent
-            if best is None: continue
-            o[tx, ty] = best
+                    if p[3] >= 128: counts[p] += 1
+                    else: clear += 1
+            # Opaque wins ties. A plain majority vote erases 1px features -- an
+            # outstretched arm or a fist disappears when a transparent neighbour
+            # outvotes it -- so only drop a pixel when nothing solid is under it.
+            if not counts: continue
+            o[tx, ty] = counts.most_common(1)[0][0]
     return out
 
 native = resample(im, W, H, nw, nh)
