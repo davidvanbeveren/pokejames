@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>HACKTIVISTS — Violet Version</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ctext y=%2726%27 font-size=%2726%27%3E%F0%9F%90%B0%3C/text%3E%3C/svg%3E">
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #14121c; color: #ddd; font-family: ui-monospace, Menlo, monospace; overflow: hidden; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+  #game { flex: 1 1 auto; width: 100%; display: flex; align-items: center; justify-content: center; min-height: 0; }
+  canvas { image-rendering: pixelated; image-rendering: crisp-edges; background: #000; box-shadow: 0 0 0 6px #2a2536, 0 0 40px rgba(138, 92, 214, 0.25); border-radius: 4px; }
+  body[data-era="0"] canvas { box-shadow: 0 0 0 6px #3a3a3a; }
+  body[data-era="1"] canvas { box-shadow: 0 0 0 6px #4a3a7a, 0 0 30px rgba(138, 92, 214, 0.3); }
+  body[data-era="2"] canvas { box-shadow: 0 0 0 6px #5a3ab0, 0 0 60px rgba(160, 100, 255, 0.45); }
+  #help { font-size: 13px; line-height: 1.7; color: #a9a4c0; padding: 10px 14px; text-align: center; user-select: none;
+          max-width: 680px; }
+  #help b { color: #c9c3e6; }
+  #loading[hidden] { display: none; }
+  #loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: #14121c; font-size: 14px; z-index: 5; }
+  #touch { display: none; width: 100%; max-width: 480px; padding: 6px 10px 14px; box-sizing: border-box; user-select: none; -webkit-user-select: none; touch-action: none; }
+  #touch .row { display: flex; justify-content: space-between; align-items: center; }
+  .dpad { display: grid; grid-template-columns: repeat(3, 48px); grid-template-rows: repeat(3, 48px); gap: 2px; }
+  .dpad button, .btns button, .sys button { background: #2a2536; border: 2px solid #4a4260; border-radius: 10px; color: #e8e4ff; font: bold 14px ui-monospace, monospace; touch-action: none; }
+  .dpad button.down, .btns button.down, .sys button.down { background: #6a4fb0; }
+  .dpad .u { grid-column: 2; grid-row: 1; } .dpad .l { grid-column: 1; grid-row: 2; } .dpad .r { grid-column: 3; grid-row: 2; } .dpad .d { grid-column: 2; grid-row: 3; }
+  .btns { display: flex; gap: 14px; align-items: center; }
+  .btns button { width: 60px; height: 60px; border-radius: 50%; font-size: 18px; }
+  .sys { display: flex; gap: 10px; justify-content: center; margin-top: 6px; }
+  .sys button { padding: 6px 16px; font-size: 12px; }
+  @media (pointer: coarse) { #touch { display: block; } #help { display: none; } }
+</style>
+</head>
+<body data-era="0">
+<div id="loading">loading…</div>
+<div id="game"><canvas id="screen" width="160" height="144"></canvas></div>
+<audio id="bgm-intro" src="audio/intro.mp3" loop preload="auto"></audio>
+<audio id="bgm-pallet" src="audio/pallet.mp3" loop preload="auto"></audio>
+<audio id="bgm-lab" src="audio/lab.mp3" loop preload="auto"></audio>
+<audio id="bgm-route1" src="audio/route1.mp3" loop preload="auto"></audio>
+<audio id="bgm-route" src="audio/route.mp3" loop preload="auto"></audio>
+<audio id="bgm-town2" src="audio/town2.mp3" loop preload="auto"></audio>
+<audio id="bgm-town3" src="audio/town3.mp3" loop preload="auto"></audio>
+<audio id="bgm-center" src="audio/center.mp3" loop preload="auto"></audio>
+<audio id="bgm-wild" src="audio/wild.mp3" loop preload="auto"></audio>
+<audio id="bgm-trainer" src="audio/trainer.mp3" loop preload="auto"></audio>
+<audio id="bgm-rival" src="audio/rival.mp3" loop preload="auto"></audio>
+<audio id="bgm-victory" src="audio/victory.mp3" loop preload="auto"></audio>
+<audio id="sfx-levelup" src="audio/levelup.mp3" preload="auto"></audio>
+<div id="help"><b>Arrows</b> / <b>WASD</b> move · <b>Z</b> or <b>Space</b> = A (talk, confirm) · <b>X</b> = B (cancel) · <b>Enter</b> = START (menu) · <b>ESC</b> = close chat · <b>Shift</b> = SELECT (bike) · <b>B</b> held = run · <b>M</b> = mute</div>
+<div id="touch">
+  <div class="row">
+    <div class="dpad">
+      <button class="u" data-key="up">▲</button><button class="l" data-key="left">◀</button><button class="r" data-key="right">▶</button><button class="d" data-key="down">▼</button>
+    </div>
+    <div class="btns"><button data-key="b">B</button><button data-key="a">A</button></div>
+  </div>
+  <div class="sys"><button data-key="select">SELECT</button><button data-key="start">START</button></div>
+</div>
+<script src="js/font.js"></script>
+<script src="js/sprites_outdoor.js"></script>
+<script src="js/sprites_indoor.js"></script>
+<script src="js/sprites_chars_a.js"></script>
+<script src="js/sprites_chars_b.js"></script>
+<script src="js/sprites_gen1_hero.js"></script>
+<script src="js/sprites_hero_kate.js"></script>
+<script src="js/sprites_gen1_set1.js"></script>
+<script src="js/sprites_gen1_set2.js"></script>
+<script src="js/sprites_gen1_set3.js"></script>
+<script src="js/sprites_animals_a.js"></script>
+<script src="js/sprites_animals_b.js"></script>
+<script src="js/sprites_animals_c.js"></script>
+<script src="js/sprites_animals_d.js"></script>
+<script src="js/sprites_trainers.js"></script>
+<script src="js/sprites_extra.js"></script>
+<script src="js/sprites_hero_fix.js"></script>
+<script src="js/sprites_trainers_gen3.js"></script>
+<script src="js/sprites_abbie.js"></script>
+<script src="js/creatures_art.js"></script>
+<script src="js/sprites_back_kate.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/tiles.js"></script>
+<script src="js/creatures_data.js"></script>
+<script src="js/data.js"></script>
+<script src="js/maps_pallet.js"></script>
+<script src="js/maps_route1.js"></script>
+<script src="js/maps_verdant.js"></script>
+<script src="js/maps_route2.js"></script>
+<script src="js/maps_violet.js"></script>
+<script src="js/maps_violet_interiors.js"></script>
+<script src="js/npcs.js"></script>
+<script src="js/quotes.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/battle.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

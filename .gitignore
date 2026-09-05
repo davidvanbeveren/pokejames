@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+tools/out/
+tools/__pycache__/
+# dist/ is the bundled build; GitHub Pages serves index.html + js/ + audio/ from the root
+dist/

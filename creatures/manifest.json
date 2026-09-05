@@ -1,0 +1,1512 @@
+[
+ {
+  "name": "BUNNIP",
+  "arch": "round",
+  "pal": "cream",
+  "num": 1,
+  "stage": 1,
+  "stages": 3,
+  "family": "BUNNIP",
+  "evolves_into": "HOPPARD"
+ },
+ {
+  "name": "HOPPARD",
+  "arch": "round",
+  "pal": "tan",
+  "num": 2,
+  "stage": 2,
+  "stages": 3,
+  "family": "BUNNIP",
+  "evolves_into": "LOPALOPE"
+ },
+ {
+  "name": "LOPALOPE",
+  "arch": "quad",
+  "pal": "brown",
+  "num": 3,
+  "stage": 3,
+  "stages": 3,
+  "family": "BUNNIP",
+  "evolves_into": null
+ },
+ {
+  "name": "CHIRPLET",
+  "arch": "bird",
+  "pal": "yellow",
+  "num": 4,
+  "stage": 1,
+  "stages": 3,
+  "family": "CHIRPLET",
+  "evolves_into": "PECKLIN"
+ },
+ {
+  "name": "PECKLIN",
+  "arch": "bird",
+  "pal": "gold",
+  "num": 5,
+  "stage": 2,
+  "stages": 3,
+  "family": "CHIRPLET",
+  "evolves_into": "PLUMEHEN"
+ },
+ {
+  "name": "PLUMEHEN",
+  "arch": "bird",
+  "pal": "rust",
+  "num": 6,
+  "stage": 3,
+  "stages": 3,
+  "family": "CHIRPLET",
+  "evolves_into": null
+ },
+ {
+  "name": "PIGLIN",
+  "arch": "quad",
+  "pal": "pink",
+  "num": 7,
+  "stage": 1,
+  "stages": 3,
+  "family": "PIGLIN",
+  "evolves_into": "SNOUTLE"
+ },
+ {
+  "name": "SNOUTLE",
+  "arch": "quad",
+  "pal": "rose",
+  "num": 8,
+  "stage": 2,
+  "stages": 3,
+  "family": "PIGLIN",
+  "evolves_into": "HOGGARTH"
+ },
+ {
+  "name": "HOGGARTH",
+  "arch": "quad",
+  "pal": "wine",
+  "num": 9,
+  "stage": 3,
+  "stages": 3,
+  "family": "PIGLIN",
+  "evolves_into": null
+ },
+ {
+  "name": "CALFKIN",
+  "arch": "quad",
+  "pal": "cream",
+  "num": 10,
+  "stage": 1,
+  "stages": 3,
+  "family": "CALFKIN",
+  "evolves_into": "MOOVEN"
+ },
+ {
+  "name": "MOOVEN",
+  "arch": "quad",
+  "pal": "white",
+  "num": 11,
+  "stage": 2,
+  "stages": 3,
+  "family": "CALFKIN",
+  "evolves_into": "BELLOWE"
+ },
+ {
+  "name": "BELLOWE",
+  "arch": "quad",
+  "pal": "ash",
+  "num": 12,
+  "stage": 3,
+  "stages": 3,
+  "family": "CALFKIN",
+  "evolves_into": null
+ },
+ {
+  "name": "LAMBKIN",
+  "arch": "round",
+  "pal": "white",
+  "num": 13,
+  "stage": 1,
+  "stages": 3,
+  "family": "LAMBKIN",
+  "evolves_into": "WOOLIN"
+ },
+ {
+  "name": "WOOLIN",
+  "arch": "round",
+  "pal": "cream",
+  "num": 14,
+  "stage": 2,
+  "stages": 3,
+  "family": "LAMBKIN",
+  "evolves_into": "FLEECIA"
+ },
+ {
+  "name": "FLEECIA",
+  "arch": "round",
+  "pal": "ash",
+  "num": 15,
+  "stage": 3,
+  "stages": 3,
+  "family": "LAMBKIN",
+  "evolves_into": null
+ },
+ {
+  "name": "KIDLET",
+  "arch": "quad",
+  "pal": "sand",
+  "num": 16,
+  "stage": 1,
+  "stages": 3,
+  "family": "KIDLET",
+  "evolves_into": "CLAMBER"
+ },
+ {
+  "name": "CLAMBER",
+  "arch": "quad",
+  "pal": "tan",
+  "num": 17,
+  "stage": 2,
+  "stages": 3,
+  "family": "KIDLET",
+  "evolves_into": "CAPRIX"
+ },
+ {
+  "name": "CAPRIX",
+  "arch": "quad",
+  "pal": "cocoa",
+  "num": 18,
+  "stage": 3,
+  "stages": 3,
+  "family": "KIDLET",
+  "evolves_into": null
+ },
+ {
+  "name": "DUCKLIN",
+  "arch": "bird",
+  "pal": "straw",
+  "num": 19,
+  "stage": 1,
+  "stages": 3,
+  "family": "DUCKLIN",
+  "evolves_into": "PADDLER"
+ },
+ {
+  "name": "PADDLER",
+  "arch": "bird",
+  "pal": "cream",
+  "num": 20,
+  "stage": 2,
+  "stages": 3,
+  "family": "DUCKLIN",
+  "evolves_into": "MALLARCH"
+ },
+ {
+  "name": "MALLARCH",
+  "arch": "bird",
+  "pal": "forest",
+  "num": 21,
+  "stage": 3,
+  "stages": 3,
+  "family": "DUCKLIN",
+  "evolves_into": null
+ },
+ {
+  "name": "GOSLET",
+  "arch": "bird",
+  "pal": "olive",
+  "num": 22,
+  "stage": 1,
+  "stages": 3,
+  "family": "GOSLET",
+  "evolves_into": "HONKLER"
+ },
+ {
+  "name": "HONKLER",
+  "arch": "bird",
+  "pal": "ash",
+  "num": 23,
+  "stage": 2,
+  "stages": 3,
+  "family": "GOSLET",
+  "evolves_into": "GANDARE"
+ },
+ {
+  "name": "GANDARE",
+  "arch": "bird",
+  "pal": "white",
+  "num": 24,
+  "stage": 3,
+  "stages": 3,
+  "family": "GOSLET",
+  "evolves_into": null
+ },
+ {
+  "name": "BEANLET",
+  "arch": "round",
+  "pal": "lime",
+  "num": 25,
+  "stage": 1,
+  "stages": 3,
+  "family": "BEANLET",
+  "evolves_into": "SPROUTOR"
+ },
+ {
+  "name": "SPROUTOR",
+  "arch": "round",
+  "pal": "green",
+  "num": 26,
+  "stage": 2,
+  "stages": 3,
+  "family": "BEANLET",
+  "evolves_into": "VERDANTHA"
+ },
+ {
+  "name": "VERDANTHA",
+  "arch": "round",
+  "pal": "forest",
+  "num": 27,
+  "stage": 3,
+  "stages": 3,
+  "family": "BEANLET",
+  "evolves_into": null
+ },
+ {
+  "name": "NIBBLET",
+  "arch": "round",
+  "pal": "sand",
+  "num": 28,
+  "stage": 1,
+  "stages": 3,
+  "family": "NIBBLET",
+  "evolves_into": "GNAWLIN"
+ },
+ {
+  "name": "GNAWLIN",
+  "arch": "round",
+  "pal": "tan",
+  "num": 29,
+  "stage": 2,
+  "stages": 3,
+  "family": "NIBBLET",
+  "evolves_into": "BURROWL"
+ },
+ {
+  "name": "BURROWL",
+  "arch": "quad",
+  "pal": "cocoa",
+  "num": 30,
+  "stage": 3,
+  "stages": 3,
+  "family": "NIBBLET",
+  "evolves_into": null
+ },
+ {
+  "name": "MEWLIN",
+  "arch": "quad",
+  "pal": "grey",
+  "num": 31,
+  "stage": 1,
+  "stages": 3,
+  "family": "MEWLIN",
+  "evolves_into": "PURRAX"
+ },
+ {
+  "name": "PURRAX",
+  "arch": "quad",
+  "pal": "slate",
+  "num": 32,
+  "stage": 2,
+  "stages": 3,
+  "family": "MEWLIN",
+  "evolves_into": "VELVETTE"
+ },
+ {
+  "name": "VELVETTE",
+  "arch": "quad",
+  "pal": "char",
+  "num": 33,
+  "stage": 3,
+  "stages": 3,
+  "family": "MEWLIN",
+  "evolves_into": null
+ },
+ {
+  "name": "PUPPLET",
+  "arch": "quad",
+  "pal": "straw",
+  "num": 34,
+  "stage": 1,
+  "stages": 3,
+  "family": "PUPPLET",
+  "evolves_into": "WOOFEN"
+ },
+ {
+  "name": "WOOFEN",
+  "arch": "quad",
+  "pal": "tan",
+  "num": 35,
+  "stage": 2,
+  "stages": 3,
+  "family": "PUPPLET",
+  "evolves_into": "LOYALDO"
+ },
+ {
+  "name": "LOYALDO",
+  "arch": "quad",
+  "pal": "brown",
+  "num": 36,
+  "stage": 3,
+  "stages": 3,
+  "family": "PUPPLET",
+  "evolves_into": null
+ },
+ {
+  "name": "FINLET",
+  "arch": "aquatic",
+  "pal": "sky",
+  "num": 37,
+  "stage": 1,
+  "stages": 3,
+  "family": "FINLET",
+  "evolves_into": "SPLASHIN"
+ },
+ {
+  "name": "SPLASHIN",
+  "arch": "aquatic",
+  "pal": "blue",
+  "num": 38,
+  "stage": 2,
+  "stages": 3,
+  "family": "FINLET",
+  "evolves_into": "TIDALLE"
+ },
+ {
+  "name": "TIDALLE",
+  "arch": "aquatic",
+  "pal": "navy",
+  "num": 39,
+  "stage": 3,
+  "stages": 3,
+  "family": "FINLET",
+  "evolves_into": null
+ },
+ {
+  "name": "GRUBLET",
+  "arch": "bug",
+  "pal": "lime",
+  "num": 40,
+  "stage": 1,
+  "stages": 3,
+  "family": "GRUBLET",
+  "evolves_into": "COCOONIE"
+ },
+ {
+  "name": "COCOONIE",
+  "arch": "round",
+  "pal": "moss",
+  "num": 41,
+  "stage": 2,
+  "stages": 3,
+  "family": "GRUBLET",
+  "evolves_into": "FLUTTERA"
+ },
+ {
+  "name": "FLUTTERA",
+  "arch": "bug",
+  "pal": "violet",
+  "num": 42,
+  "stage": 3,
+  "stages": 3,
+  "family": "GRUBLET",
+  "evolves_into": null
+ },
+ {
+  "name": "TADPOLL",
+  "arch": "aquatic",
+  "pal": "mint",
+  "num": 43,
+  "stage": 1,
+  "stages": 3,
+  "family": "TADPOLL",
+  "evolves_into": "HOPPLET"
+ },
+ {
+  "name": "HOPPLET",
+  "arch": "round",
+  "pal": "green",
+  "num": 44,
+  "stage": 2,
+  "stages": 3,
+  "family": "TADPOLL",
+  "evolves_into": "RIBBITON"
+ },
+ {
+  "name": "RIBBITON",
+  "arch": "round",
+  "pal": "forest",
+  "num": 45,
+  "stage": 3,
+  "stages": 3,
+  "family": "TADPOLL",
+  "evolves_into": null
+ },
+ {
+  "name": "SHELLET",
+  "arch": "aquatic",
+  "pal": "moss",
+  "num": 46,
+  "stage": 1,
+  "stages": 3,
+  "family": "SHELLET",
+  "evolves_into": "PADDLETOP"
+ },
+ {
+  "name": "PADDLETOP",
+  "arch": "aquatic",
+  "pal": "olive",
+  "num": 47,
+  "stage": 2,
+  "stages": 3,
+  "family": "SHELLET",
+  "evolves_into": "TERRAPINE"
+ },
+ {
+  "name": "TERRAPINE",
+  "arch": "aquatic",
+  "pal": "forest",
+  "num": 48,
+  "stage": 3,
+  "stages": 3,
+  "family": "SHELLET",
+  "evolves_into": null
+ },
+ {
+  "name": "OWLET",
+  "arch": "bird",
+  "pal": "cocoa",
+  "num": 49,
+  "stage": 1,
+  "stages": 3,
+  "family": "OWLET",
+  "evolves_into": "HOOTLE"
+ },
+ {
+  "name": "HOOTLE",
+  "arch": "bird",
+  "pal": "brown",
+  "num": 50,
+  "stage": 2,
+  "stages": 3,
+  "family": "OWLET",
+  "evolves_into": "NOCTURNA"
+ },
+ {
+  "name": "NOCTURNA",
+  "arch": "bird",
+  "pal": "plum",
+  "num": 51,
+  "stage": 3,
+  "stages": 3,
+  "family": "OWLET",
+  "evolves_into": null
+ },
+ {
+  "name": "CUBBIN",
+  "arch": "quad",
+  "pal": "cocoa",
+  "num": 52,
+  "stage": 1,
+  "stages": 3,
+  "family": "CUBBIN",
+  "evolves_into": "BRAMBLEAR"
+ },
+ {
+  "name": "BRAMBLEAR",
+  "arch": "quad",
+  "pal": "brown",
+  "num": 53,
+  "stage": 2,
+  "stages": 3,
+  "family": "CUBBIN",
+  "evolves_into": "GRIZZLOAM"
+ },
+ {
+  "name": "GRIZZLOAM",
+  "arch": "quad",
+  "pal": "char",
+  "num": 54,
+  "stage": 3,
+  "stages": 3,
+  "family": "CUBBIN",
+  "evolves_into": null
+ },
+ {
+  "name": "KITSLET",
+  "arch": "quad",
+  "pal": "orange",
+  "num": 55,
+  "stage": 1,
+  "stages": 3,
+  "family": "KITSLET",
+  "evolves_into": "RUSSELLE"
+ },
+ {
+  "name": "RUSSELLE",
+  "arch": "quad",
+  "pal": "rust",
+  "num": 56,
+  "stage": 2,
+  "stages": 3,
+  "family": "KITSLET",
+  "evolves_into": "VULPINA"
+ },
+ {
+  "name": "VULPINA",
+  "arch": "quad",
+  "pal": "red",
+  "num": 57,
+  "stage": 3,
+  "stages": 3,
+  "family": "KITSLET",
+  "evolves_into": null
+ },
+ {
+  "name": "SPORELET",
+  "arch": "round",
+  "pal": "cream",
+  "num": 58,
+  "stage": 1,
+  "stages": 3,
+  "family": "SPORELET",
+  "evolves_into": "CAPPLIN"
+ },
+ {
+  "name": "CAPPLIN",
+  "arch": "round",
+  "pal": "coral",
+  "num": 59,
+  "stage": 2,
+  "stages": 3,
+  "family": "SPORELET",
+  "evolves_into": "MYCELIA"
+ },
+ {
+  "name": "MYCELIA",
+  "arch": "round",
+  "pal": "wine",
+  "num": 60,
+  "stage": 3,
+  "stages": 3,
+  "family": "SPORELET",
+  "evolves_into": null
+ },
+ {
+  "name": "PRICKLET",
+  "arch": "round",
+  "pal": "tan",
+  "num": 61,
+  "stage": 1,
+  "stages": 2,
+  "family": "PRICKLET",
+  "evolves_into": "HEDGEROW"
+ },
+ {
+  "name": "HEDGEROW",
+  "arch": "round",
+  "pal": "cocoa",
+  "num": 62,
+  "stage": 2,
+  "stages": 2,
+  "family": "PRICKLET",
+  "evolves_into": null
+ },
+ {
+  "name": "FLITTLE",
+  "arch": "round",
+  "pal": "plum",
+  "num": 63,
+  "stage": 1,
+  "stages": 2,
+  "family": "FLITTLE",
+  "evolves_into": "DUSKWING"
+ },
+ {
+  "name": "DUSKWING",
+  "arch": "round",
+  "pal": "violet",
+  "num": 64,
+  "stage": 2,
+  "stages": 2,
+  "family": "FLITTLE",
+  "evolves_into": null
+ },
+ {
+  "name": "PINCHLET",
+  "arch": "aquatic",
+  "pal": "coral",
+  "num": 65,
+  "stage": 1,
+  "stages": 2,
+  "family": "PINCHLET",
+  "evolves_into": "SHORECLAW"
+ },
+ {
+  "name": "SHORECLAW",
+  "arch": "aquatic",
+  "pal": "red",
+  "num": 66,
+  "stage": 2,
+  "stages": 2,
+  "family": "PINCHLET",
+  "evolves_into": null
+ },
+ {
+  "name": "COILET",
+  "arch": "bug",
+  "pal": "lime",
+  "num": 67,
+  "stage": 1,
+  "stages": 2,
+  "family": "COILET",
+  "evolves_into": "MEADOWYRM"
+ },
+ {
+  "name": "MEADOWYRM",
+  "arch": "bug",
+  "pal": "leaf",
+  "num": 68,
+  "stage": 2,
+  "stages": 2,
+  "family": "COILET",
+  "evolves_into": null
+ },
+ {
+  "name": "COOLET",
+  "arch": "bird",
+  "pal": "ash",
+  "num": 69,
+  "stage": 1,
+  "stages": 2,
+  "family": "COOLET",
+  "evolves_into": "CITYWING"
+ },
+ {
+  "name": "CITYWING",
+  "arch": "bird",
+  "pal": "slate",
+  "num": 70,
+  "stage": 2,
+  "stages": 2,
+  "family": "COOLET",
+  "evolves_into": null
+ },
+ {
+  "name": "TOFULET",
+  "arch": "round",
+  "pal": "white",
+  "num": 71,
+  "stage": 1,
+  "stages": 2,
+  "family": "TOFULET",
+  "evolves_into": "TEMPETH"
+ },
+ {
+  "name": "TEMPETH",
+  "arch": "round",
+  "pal": "straw",
+  "num": 72,
+  "stage": 2,
+  "stages": 2,
+  "family": "TOFULET",
+  "evolves_into": null
+ },
+ {
+  "name": "KALEAF",
+  "arch": "round",
+  "pal": "forest",
+  "num": 73,
+  "stage": 1,
+  "stages": 2,
+  "family": "KALEAF",
+  "evolves_into": "KALESTRA"
+ },
+ {
+  "name": "KALESTRA",
+  "arch": "round",
+  "pal": "moss",
+  "num": 74,
+  "stage": 2,
+  "stages": 2,
+  "family": "KALEAF",
+  "evolves_into": null
+ },
+ {
+  "name": "OATLING",
+  "arch": "round",
+  "pal": "straw",
+  "num": 75,
+  "stage": 1,
+  "stages": 2,
+  "family": "OATLING",
+  "evolves_into": "OATERNAL"
+ },
+ {
+  "name": "OATERNAL",
+  "arch": "round",
+  "pal": "sand",
+  "num": 76,
+  "stage": 2,
+  "stages": 2,
+  "family": "OATLING",
+  "evolves_into": null
+ },
+ {
+  "name": "BUZZLET",
+  "arch": "bug",
+  "pal": "gold",
+  "num": 77,
+  "stage": 1,
+  "stages": 2,
+  "family": "BUZZLET",
+  "evolves_into": "POLLENAIRE"
+ },
+ {
+  "name": "POLLENAIRE",
+  "arch": "bug",
+  "pal": "yellow",
+  "num": 78,
+  "stage": 2,
+  "stages": 2,
+  "family": "BUZZLET",
+  "evolves_into": null
+ },
+ {
+  "name": "ANTLET",
+  "arch": "bug",
+  "pal": "rust",
+  "num": 79,
+  "stage": 1,
+  "stages": 2,
+  "family": "ANTLET",
+  "evolves_into": "FORMICORE"
+ },
+ {
+  "name": "FORMICORE",
+  "arch": "bug",
+  "pal": "cocoa",
+  "num": 80,
+  "stage": 2,
+  "stages": 2,
+  "family": "ANTLET",
+  "evolves_into": null
+ },
+ {
+  "name": "BUBBLIN",
+  "arch": "aquatic",
+  "pal": "aqua",
+  "num": 81,
+  "stage": 1,
+  "stages": 2,
+  "family": "BUBBLIN",
+  "evolves_into": "GLIMMERFIN"
+ },
+ {
+  "name": "GLIMMERFIN",
+  "arch": "aquatic",
+  "pal": "teal",
+  "num": 82,
+  "stage": 2,
+  "stages": 2,
+  "family": "BUBBLIN",
+  "evolves_into": null
+ },
+ {
+  "name": "SEALET",
+  "arch": "aquatic",
+  "pal": "ash",
+  "num": 83,
+  "stage": 1,
+  "stages": 2,
+  "family": "SEALET",
+  "evolves_into": "SELKIE"
+ },
+ {
+  "name": "SELKIE",
+  "arch": "aquatic",
+  "pal": "slate",
+  "num": 84,
+  "stage": 2,
+  "stages": 2,
+  "family": "SEALET",
+  "evolves_into": null
+ },
+ {
+  "name": "OTTERLET",
+  "arch": "quad",
+  "pal": "cocoa",
+  "num": 85,
+  "stage": 1,
+  "stages": 2,
+  "family": "OTTERLET",
+  "evolves_into": "RIVERSONG"
+ },
+ {
+  "name": "RIVERSONG",
+  "arch": "quad",
+  "pal": "brown",
+  "num": 86,
+  "stage": 2,
+  "stages": 2,
+  "family": "OTTERLET",
+  "evolves_into": null
+ },
+ {
+  "name": "SQUEAKLET",
+  "arch": "round",
+  "pal": "grey",
+  "num": 87,
+  "stage": 1,
+  "stages": 2,
+  "family": "SQUEAKLET",
+  "evolves_into": "WHISKERO"
+ },
+ {
+  "name": "WHISKERO",
+  "arch": "round",
+  "pal": "slate",
+  "num": 88,
+  "stage": 2,
+  "stages": 2,
+  "family": "SQUEAKLET",
+  "evolves_into": null
+ },
+ {
+  "name": "ACORNIP",
+  "arch": "round",
+  "pal": "rust",
+  "num": 89,
+  "stage": 1,
+  "stages": 2,
+  "family": "ACORNIP",
+  "evolves_into": "TUFTAIL"
+ },
+ {
+  "name": "TUFTAIL",
+  "arch": "quad",
+  "pal": "brown",
+  "num": 90,
+  "stage": 2,
+  "stages": 2,
+  "family": "ACORNIP",
+  "evolves_into": null
+ },
+ {
+  "name": "FOALIN",
+  "arch": "quad",
+  "pal": "tan",
+  "num": 91,
+  "stage": 1,
+  "stages": 2,
+  "family": "FOALIN",
+  "evolves_into": "GALLOPRA"
+ },
+ {
+  "name": "GALLOPRA",
+  "arch": "quad",
+  "pal": "brown",
+  "num": 92,
+  "stage": 2,
+  "stages": 2,
+  "family": "FOALIN",
+  "evolves_into": null
+ },
+ {
+  "name": "BRAYLET",
+  "arch": "quad",
+  "pal": "grey",
+  "num": 93,
+  "stage": 1,
+  "stages": 2,
+  "family": "BRAYLET",
+  "evolves_into": "BURRONNE"
+ },
+ {
+  "name": "BURRONNE",
+  "arch": "quad",
+  "pal": "slate",
+  "num": 94,
+  "stage": 2,
+  "stages": 2,
+  "family": "BRAYLET",
+  "evolves_into": null
+ },
+ {
+  "name": "POULTLET",
+  "arch": "bird",
+  "pal": "cocoa",
+  "num": 95,
+  "stage": 1,
+  "stages": 2,
+  "family": "POULTLET",
+  "evolves_into": "GOBBLARA"
+ },
+ {
+  "name": "GOBBLARA",
+  "arch": "bird",
+  "pal": "brown",
+  "num": 96,
+  "stage": 2,
+  "stages": 2,
+  "family": "POULTLET",
+  "evolves_into": null
+ },
+ {
+  "name": "PEALET",
+  "arch": "bird",
+  "pal": "teal",
+  "num": 97,
+  "stage": 1,
+  "stages": 2,
+  "family": "PEALET",
+  "evolves_into": "PLUMARIS"
+ },
+ {
+  "name": "PLUMARIS",
+  "arch": "bird",
+  "pal": "navy",
+  "num": 98,
+  "stage": 2,
+  "stages": 2,
+  "family": "PEALET",
+  "evolves_into": null
+ },
+ {
+  "name": "CYGNIP",
+  "arch": "bird",
+  "pal": "ash",
+  "num": 99,
+  "stage": 1,
+  "stages": 2,
+  "family": "CYGNIP",
+  "evolves_into": "SWANESSA"
+ },
+ {
+  "name": "SWANESSA",
+  "arch": "bird",
+  "pal": "white",
+  "num": 100,
+  "stage": 2,
+  "stages": 2,
+  "family": "CYGNIP",
+  "evolves_into": null
+ },
+ {
+  "name": "SPOTLET",
+  "arch": "quad",
+  "pal": "sand",
+  "num": 101,
+  "stage": 1,
+  "stages": 2,
+  "family": "SPOTLET",
+  "evolves_into": "LYNXARA"
+ },
+ {
+  "name": "LYNXARA",
+  "arch": "quad",
+  "pal": "tan",
+  "num": 102,
+  "stage": 2,
+  "stages": 2,
+  "family": "SPOTLET",
+  "evolves_into": null
+ },
+ {
+  "name": "WOLFLET",
+  "arch": "quad",
+  "pal": "grey",
+  "num": 103,
+  "stage": 1,
+  "stages": 2,
+  "family": "WOLFLET",
+  "evolves_into": "LUNARUFF"
+ },
+ {
+  "name": "LUNARUFF",
+  "arch": "quad",
+  "pal": "slate",
+  "num": 104,
+  "stage": 2,
+  "stages": 2,
+  "family": "WOLFLET",
+  "evolves_into": null
+ },
+ {
+  "name": "FAWNLET",
+  "arch": "quad",
+  "pal": "sand",
+  "num": 105,
+  "stage": 1,
+  "stages": 2,
+  "family": "FAWNLET",
+  "evolves_into": "ANTLERIA"
+ },
+ {
+  "name": "ANTLERIA",
+  "arch": "quad",
+  "pal": "tan",
+  "num": 106,
+  "stage": 2,
+  "stages": 2,
+  "family": "FAWNLET",
+  "evolves_into": null
+ },
+ {
+  "name": "PANDLET",
+  "arch": "quad",
+  "pal": "white",
+  "num": 107,
+  "stage": 1,
+  "stages": 2,
+  "family": "PANDLET",
+  "evolves_into": "BAMBOOM"
+ },
+ {
+  "name": "BAMBOOM",
+  "arch": "quad",
+  "pal": "ash",
+  "num": 108,
+  "stage": 2,
+  "stages": 2,
+  "family": "PANDLET",
+  "evolves_into": null
+ },
+ {
+  "name": "TRUFFLET",
+  "arch": "round",
+  "pal": "cocoa",
+  "num": 109,
+  "stage": 1,
+  "stages": 2,
+  "family": "TRUFFLET",
+  "evolves_into": "FUNGARO"
+ },
+ {
+  "name": "FUNGARO",
+  "arch": "round",
+  "pal": "plum",
+  "num": 110,
+  "stage": 2,
+  "stages": 2,
+  "family": "TRUFFLET",
+  "evolves_into": null
+ },
+ {
+  "name": "CARROTOT",
+  "arch": "round",
+  "pal": "orange",
+  "num": 111,
+  "stage": 1,
+  "stages": 2,
+  "family": "CARROTOT",
+  "evolves_into": "ROOTARCH"
+ },
+ {
+  "name": "ROOTARCH",
+  "arch": "round",
+  "pal": "rust",
+  "num": 112,
+  "stage": 2,
+  "stages": 2,
+  "family": "CARROTOT",
+  "evolves_into": null
+ },
+ {
+  "name": "PUMPLET",
+  "arch": "round",
+  "pal": "orange",
+  "num": 113,
+  "stage": 1,
+  "stages": 2,
+  "family": "PUMPLET",
+  "evolves_into": "GOURDIAN"
+ },
+ {
+  "name": "GOURDIAN",
+  "arch": "round",
+  "pal": "gold",
+  "num": 114,
+  "stage": 2,
+  "stages": 2,
+  "family": "PUMPLET",
+  "evolves_into": null
+ },
+ {
+  "name": "SPROUTIE",
+  "arch": "round",
+  "pal": "mint",
+  "num": 115,
+  "stage": 1,
+  "stages": 2,
+  "family": "SPROUTIE",
+  "evolves_into": "GREENGALE"
+ },
+ {
+  "name": "GREENGALE",
+  "arch": "round",
+  "pal": "green",
+  "num": 116,
+  "stage": 2,
+  "stages": 2,
+  "family": "SPROUTIE",
+  "evolves_into": null
+ },
+ {
+  "name": "LARVLET",
+  "arch": "bug",
+  "pal": "gold",
+  "num": 117,
+  "stage": 1,
+  "stages": 2,
+  "family": "LARVLET",
+  "evolves_into": "PRISMWING"
+ },
+ {
+  "name": "PRISMWING",
+  "arch": "bug",
+  "pal": "sky",
+  "num": 118,
+  "stage": 2,
+  "stages": 2,
+  "family": "LARVLET",
+  "evolves_into": null
+ },
+ {
+  "name": "NYMPHLET",
+  "arch": "bug",
+  "pal": "teal",
+  "num": 119,
+  "stage": 1,
+  "stages": 2,
+  "family": "NYMPHLET",
+  "evolves_into": "GLIDEWING"
+ },
+ {
+  "name": "GLIDEWING",
+  "arch": "bug",
+  "pal": "aqua",
+  "num": 120,
+  "stage": 2,
+  "stages": 2,
+  "family": "NYMPHLET",
+  "evolves_into": null
+ },
+ {
+  "name": "TREEPLET",
+  "arch": "round",
+  "pal": "lime",
+  "num": 121,
+  "stage": 1,
+  "stages": 2,
+  "family": "TREEPLET",
+  "evolves_into": "CANOPPY"
+ },
+ {
+  "name": "CANOPPY",
+  "arch": "round",
+  "pal": "leaf",
+  "num": 122,
+  "stage": 2,
+  "stages": 2,
+  "family": "TREEPLET",
+  "evolves_into": null
+ },
+ {
+  "name": "PADDLIN",
+  "arch": "aquatic",
+  "pal": "teal",
+  "num": 123,
+  "stage": 1,
+  "stages": 2,
+  "family": "PADDLIN",
+  "evolves_into": "OCEANOR"
+ },
+ {
+  "name": "OCEANOR",
+  "arch": "aquatic",
+  "pal": "navy",
+  "num": 124,
+  "stage": 2,
+  "stages": 2,
+  "family": "PADDLIN",
+  "evolves_into": null
+ },
+ {
+  "name": "COCKLET",
+  "arch": "bird",
+  "pal": "cream",
+  "num": 125,
+  "stage": 1,
+  "stages": 2,
+  "family": "COCKLET",
+  "evolves_into": "ROOSTAR"
+ },
+ {
+  "name": "ROOSTAR",
+  "arch": "bird",
+  "pal": "rust",
+  "num": 126,
+  "stage": 2,
+  "stages": 2,
+  "family": "COCKLET",
+  "evolves_into": null
+ },
+ {
+  "name": "PENGLET",
+  "arch": "bird",
+  "pal": "ash",
+  "num": 127,
+  "stage": 1,
+  "stages": 2,
+  "family": "PENGLET",
+  "evolves_into": "TUXEDON"
+ },
+ {
+  "name": "TUXEDON",
+  "arch": "bird",
+  "pal": "char",
+  "num": 128,
+  "stage": 2,
+  "stages": 2,
+  "family": "PENGLET",
+  "evolves_into": null
+ },
+ {
+  "name": "ALPACLET",
+  "arch": "round",
+  "pal": "cream",
+  "num": 129,
+  "stage": 1,
+  "stages": 2,
+  "family": "ALPACLET",
+  "evolves_into": "FLUFFANDO"
+ },
+ {
+  "name": "FLUFFANDO",
+  "arch": "quad",
+  "pal": "straw",
+  "num": 130,
+  "stage": 2,
+  "stages": 2,
+  "family": "ALPACLET",
+  "evolves_into": null
+ },
+ {
+  "name": "PIGEONIS",
+  "arch": "bird",
+  "pal": "lilac",
+  "num": 131,
+  "stage": 1,
+  "stages": 1,
+  "family": "PIGEONIS",
+  "evolves_into": null
+ },
+ {
+  "name": "MOOCHU",
+  "arch": "round",
+  "pal": "gold",
+  "num": 132,
+  "stage": 1,
+  "stages": 1,
+  "family": "MOOCHU",
+  "evolves_into": null
+ },
+ {
+  "name": "BEANWISE",
+  "arch": "round",
+  "pal": "moss",
+  "num": 133,
+  "stage": 1,
+  "stages": 1,
+  "family": "BEANWISE",
+  "evolves_into": null
+ },
+ {
+  "name": "TOFURION",
+  "arch": "round",
+  "pal": "white",
+  "num": 134,
+  "stage": 1,
+  "stages": 1,
+  "family": "TOFURION",
+  "evolves_into": null
+ },
+ {
+  "name": "HAYWAIN",
+  "arch": "round",
+  "pal": "straw",
+  "num": 135,
+  "stage": 1,
+  "stages": 1,
+  "family": "HAYWAIN",
+  "evolves_into": null
+ },
+ {
+  "name": "CLOVERA",
+  "arch": "round",
+  "pal": "green",
+  "num": 136,
+  "stage": 1,
+  "stages": 1,
+  "family": "CLOVERA",
+  "evolves_into": null
+ },
+ {
+  "name": "SUNPETAL",
+  "arch": "round",
+  "pal": "yellow",
+  "num": 137,
+  "stage": 1,
+  "stages": 1,
+  "family": "SUNPETAL",
+  "evolves_into": null
+ },
+ {
+  "name": "DANDELUFF",
+  "arch": "round",
+  "pal": "cream",
+  "num": 138,
+  "stage": 1,
+  "stages": 1,
+  "family": "DANDELUFF",
+  "evolves_into": null
+ },
+ {
+  "name": "BADGERON",
+  "arch": "quad",
+  "pal": "ash",
+  "num": 139,
+  "stage": 1,
+  "stages": 1,
+  "family": "BADGERON",
+  "evolves_into": null
+ },
+ {
+  "name": "MOLEKIN",
+  "arch": "round",
+  "pal": "slate",
+  "num": 140,
+  "stage": 1,
+  "stages": 1,
+  "family": "MOLEKIN",
+  "evolves_into": null
+ },
+ {
+  "name": "RACCOONA",
+  "arch": "quad",
+  "pal": "grey",
+  "num": 141,
+  "stage": 1,
+  "stages": 1,
+  "family": "RACCOONA",
+  "evolves_into": null
+ },
+ {
+  "name": "POSSUMBER",
+  "arch": "quad",
+  "pal": "ash",
+  "num": 142,
+  "stage": 1,
+  "stages": 1,
+  "family": "POSSUMBER",
+  "evolves_into": null
+ },
+ {
+  "name": "FERRETTA",
+  "arch": "quad",
+  "pal": "sand",
+  "num": 143,
+  "stage": 1,
+  "stages": 1,
+  "family": "FERRETTA",
+  "evolves_into": null
+ },
+ {
+  "name": "LLAMANDA",
+  "arch": "quad",
+  "pal": "cream",
+  "num": 144,
+  "stage": 1,
+  "stages": 1,
+  "family": "LLAMANDA",
+  "evolves_into": null
+ },
+ {
+  "name": "CAMELIA",
+  "arch": "quad",
+  "pal": "sand",
+  "num": 145,
+  "stage": 1,
+  "stages": 1,
+  "family": "CAMELIA",
+  "evolves_into": null
+ },
+ {
+  "name": "QUOKKINE",
+  "arch": "round",
+  "pal": "brown",
+  "num": 146,
+  "stage": 1,
+  "stages": 1,
+  "family": "QUOKKINE",
+  "evolves_into": null
+ },
+ {
+  "name": "CAPYBLISS",
+  "arch": "quad",
+  "pal": "cocoa",
+  "num": 147,
+  "stage": 1,
+  "stages": 1,
+  "family": "CAPYBLISS",
+  "evolves_into": null
+ },
+ {
+  "name": "SLOTHEA",
+  "arch": "quad",
+  "pal": "moss",
+  "num": 148,
+  "stage": 1,
+  "stages": 1,
+  "family": "SLOTHEA",
+  "evolves_into": null
+ },
+ {
+  "name": "HERONESS",
+  "arch": "bird",
+  "pal": "sky",
+  "num": 149,
+  "stage": 1,
+  "stages": 1,
+  "family": "HERONESS",
+  "evolves_into": null
+ },
+ {
+  "name": "ROBINETTE",
+  "arch": "bird",
+  "pal": "coral",
+  "num": 150,
+  "stage": 1,
+  "stages": 1,
+  "family": "ROBINETTE",
+  "evolves_into": null
+ },
+ {
+  "name": "STARLINGA",
+  "arch": "bird",
+  "pal": "plum",
+  "num": 151,
+  "stage": 1,
+  "stages": 1,
+  "family": "STARLINGA",
+  "evolves_into": null
+ }
+]

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>audio.js auditioner</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 20px; background: #14141c; color: #e8e8f0;
+    font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p.sub { margin: 0 0 20px; color: #9a9ab0; }
+  .bar {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    background: #1d1d29; border: 1px solid #33334a; border-radius: 8px;
+    padding: 12px 14px; margin-bottom: 18px;
+  }
+  .bar label { display: flex; align-items: center; gap: 6px; }
+  fieldset { border: 1px solid #33334a; border-radius: 6px; display: flex; gap: 10px; padding: 6px 10px; margin: 0; }
+  legend { padding: 0 4px; color: #9a9ab0; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+  section { margin-bottom: 22px; }
+  section h2 {
+    font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #9a9ab0;
+    margin: 0 0 10px; border-bottom: 1px solid #2a2a3a; padding-bottom: 6px;
+  }
+  .grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  button {
+    background: #262638; color: #e8e8f0; border: 1px solid #3c3c56;
+    border-radius: 6px; padding: 8px 12px; font-size: 13px; cursor: pointer;
+    font-family: inherit;
+  }
+  button:hover { background: #31314a; }
+  button:active { background: #3c3c5c; }
+  button.playing { background: #3a6b4a; border-color: #4f8f66; }
+  button.stop { background: #6b3a3a; border-color: #8f4f4f; }
+  button.stop:hover { background: #7c4444; }
+  #status { color: #9a9ab0; font-size: 12px; margin-top: -6px; margin-bottom: 18px; min-height: 1.4em; }
+  #status b { color: #e8e8f0; }
+  input[type=range] { width: 120px; }
+</style>
+</head>
+<body>
+
+<h1>audio.js auditioner</h1>
+<p class="sub">Click anywhere to unlock audio, then try eras, songs and sound effects. Reads its id lists straight from AUDIO.musicIds() / AUDIO.sfxIds().</p>
+
+<div class="bar">
+  <fieldset>
+    <legend>Era</legend>
+    <label><input type="radio" name="era" value="0" checked> 0 · Game Boy</label>
+    <label><input type="radio" name="era" value="1"> 1 · Game Boy Color</label>
+    <label><input type="radio" name="era" value="2"> 2 · GBA</label>
+  </fieldset>
+  <button id="stopBtn" class="stop">Stop Music</button>
+  <label><input type="checkbox" id="muteBox"> Muted</label>
+  <label>Volume <input type="range" id="volSlider" min="0" max="100" value="100"></label>
+</div>
+
+<div id="status">Click anywhere to initialize audio.</div>
+
+<section>
+  <h2>Music (click to play; click again / another song to switch)</h2>
+  <div class="grid" id="musicGrid"></div>
+</section>
+
+<section>
+  <h2>SFX (one-shots, overlap freely)</h2>
+  <div class="grid" id="sfxGrid"></div>
+</section>
+
+<audio id="bgm-intro" src="../audio/intro.mp3" loop preload="none"></audio>
+<audio id="bgm-pallet" src="../audio/pallet.mp3" loop preload="none"></audio>
+<audio id="bgm-lab" src="../audio/lab.mp3" loop preload="none"></audio>
+<audio id="bgm-route1" src="../audio/route1.mp3" loop preload="none"></audio>
+<audio id="bgm-route" src="../audio/route.mp3" loop preload="none"></audio>
+<audio id="bgm-town2" src="../audio/town2.mp3" loop preload="none"></audio>
+<audio id="bgm-town3" src="../audio/town3.mp3" loop preload="none"></audio>
+<audio id="bgm-center" src="../audio/center.mp3" loop preload="none"></audio>
+<audio id="bgm-wild" src="../audio/wild.mp3" loop preload="none"></audio>
+<audio id="bgm-trainer" src="../audio/trainer.mp3" loop preload="none"></audio>
+<audio id="bgm-rival" src="../audio/rival.mp3" loop preload="auto"></audio>
+<audio id="bgm-victory" src="../audio/victory.mp3" loop preload="auto"></audio>
+<audio id="sfx-levelup" src="../audio/levelup.mp3" preload="auto"></audio>
+<script src="../js/audio.js"></script>
+<script>
+(function () {
+  var statusEl = document.getElementById('status');
+  function setStatus(html) { statusEl.innerHTML = html; }
+
+  if (!window.AUDIO) {
+    setStatus('<b style="color:#e08080">window.AUDIO not found — js/audio.js failed to load or throw an error. Check the console.</b>');
+    return;
+  }
+
+  var unlocked = false;
+  function unlock() {
+    if (unlocked) return;
+    unlocked = true;
+    AUDIO.init();
+    setStatus('Audio ready. Nothing playing.');
+  }
+  document.addEventListener('pointerdown', unlock, { once: true });
+  document.addEventListener('keydown', unlock, { once: true });
+
+  // ---- era ----
+  var eraRadios = document.querySelectorAll('input[name=era]');
+  eraRadios.forEach(function (r) {
+    r.addEventListener('change', function () {
+      if (r.checked) { AUDIO.setEra(parseInt(r.value, 10)); setStatus('Era set to ' + r.value + '.'); }
+    });
+  });
+
+  // ---- transport / volume ----
+  var musicButtons = {};
+  function refreshPlayingState() {
+    var cur = AUDIO.currentMusic();
+    Object.keys(musicButtons).forEach(function (id) {
+      musicButtons[id].classList.toggle('playing', id === cur);
+    });
+    setStatus(cur ? 'Now playing: <b>' + cur + '</b>' : 'Nothing playing.');
+  }
+
+  document.getElementById('stopBtn').addEventListener('click', function () {
+    unlock();
+    AUDIO.stopMusic(250);
+    setTimeout(refreshPlayingState, 60);
+  });
+  document.getElementById('muteBox').addEventListener('change', function (e) {
+    unlock();
+    AUDIO.setMuted(e.target.checked);
+  });
+  document.getElementById('volSlider').addEventListener('input', function (e) {
+    unlock();
+    AUDIO.setVolume(e.target.value / 100);
+  });
+
+  // ---- build buttons straight from the engine's own id lists ----
+  var musicGrid = document.getElementById('musicGrid');
+  var allMusic = (AUDIO.musicIds ? AUDIO.musicIds() : []).concat(AUDIO.streamIds ? AUDIO.streamIds() : []);
+  allMusic.forEach(function (id) {
+    var b = document.createElement('button');
+    b.textContent = id;
+    b.addEventListener('click', function () {
+      unlock();
+      AUDIO.playMusic(id);
+      setTimeout(refreshPlayingState, 60);
+    });
+    musicButtons[id] = b;
+    musicGrid.appendChild(b);
+  });
+
+  var sfxGrid = document.getElementById('sfxGrid');
+  (AUDIO.sfxIds ? AUDIO.sfxIds() : []).forEach(function (id) {
+    var b = document.createElement('button');
+    b.textContent = id;
+    b.addEventListener('click', function () {
+      unlock();
+      AUDIO.sfx(id);
+    });
+    sfxGrid.appendChild(b);
+  });
+
+  // Keep the "now playing" highlight honest even if a song is switched
+  // programmatically (e.g. by clicking a different song button).
+  setInterval(refreshPlayingState, 400);
+})();
+</script>
+
+</body>
+</html>
