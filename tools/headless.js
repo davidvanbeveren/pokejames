@@ -28,7 +28,7 @@ function loadGame(opts) {
   window.__warnings = []; window.__errors = [];
   const ctx = vm.createContext(window);
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-  const files = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
+  const files = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1].split('?')[0]);
   const loaded = [], missing = [];
   for (const f of files) {
     const p = path.join(ROOT, f);

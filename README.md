@@ -40,6 +40,8 @@ turns Game Boy Color in Verdant Town, and becomes GBA-quality in Violet City, wh
 - `node tools/lint.js` — whole-game consistency check (sprites, maps, warps, reachability, scripts, text widths).
 - `node tools/playtest.js` — automated full playthrough in a headless engine (title → party).
 - `node tools/render.js js/<sprites>.js` and `node tools/rendermap.js js/<maps>.js` — PNG previews in `tools/out/`.
+- `node tools/stamp_assets.js` — stamp `?v=<content hash>` on the js/audio URLs in `index.html`. Run before deploying:
+  GitHub Pages caches assets for 10 minutes, so without it a fresh deploy keeps serving the old scripts.
 - `node tools/export_copy.js` — dump every player-facing line into `COPY.md` with stable `[id]` tags, for editing
   and handing back. Covers story, signs, NPCs, the team's birthday messages, skeptics, items, charms and all 151 dex entries.
 - `tools/audiotest.html` — audition every song, recording and sound effect.

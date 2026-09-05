@@ -19,7 +19,7 @@ html = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
 
 
 def inline_script(m):
-    src = m.group(1)
+    src = m.group(1).split('?')[0]
     p = os.path.join(ROOT, src)
     if not os.path.exists(p):
         print('warning: missing', src); return ''
@@ -29,7 +29,7 @@ def inline_script(m):
 
 def inline_media(m):
     """Turn src="audio/pallet.mp3" into a data: URI."""
-    src = m.group(1)
+    src = m.group(1).split('?')[0]
     p = os.path.join(ROOT, src)
     if not os.path.exists(p):
         print('warning: missing', src); return m.group(0)
@@ -41,10 +41,14 @@ def inline_media(m):
 full = re.sub(r'<script src="([^"]+)"></script>', inline_script, html)
 
 # ---- media: either inlined, or copied next to the page and left as relative paths
-media = sorted(set(re.findall(MEDIA_RE, full)))
+media = sorted({m.split('?')[0] for m in re.findall(MEDIA_RE, full)})
 media_bytes = sum(os.path.getsize(os.path.join(ROOT, m)) for m in media if os.path.exists(os.path.join(ROOT, m)))
 if EMBED:
     full = re.sub(MEDIA_RE, inline_media, full)
+
+# dist/ is opened as a local file, where a ?v= query can break file:// resolution --
+# and it needs no cache busting anyway, so drop the stamps from the bundle.
+full = re.sub(r'(src="[^"]+?)\?v=[0-9a-f]+"', r'\1"', full)
 
 os.makedirs(DIST, exist_ok=True)
 open(os.path.join(DIST, 'index.html'), 'w', encoding='utf-8').write(full)
