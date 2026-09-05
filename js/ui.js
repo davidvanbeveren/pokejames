@@ -411,7 +411,10 @@
   // ---------- Title screen ----------
   UI.title = function* () {
     G.mode = 'title';
-    const animals = ['front_bunny', 'front_chick', 'front_piglet', 'front_calf', 'front_lamb', 'front_duckling', 'front_kidgoat', 'front_pigeon'].filter(G.hasSprite);
+    // Real species from the FriendDex, so the title shows the actual creature art.
+    // (These used to be legacy alias names that no longer point anywhere useful.)
+    const animals = ['TOAD', 'SALAMANDER', 'TURTLE', 'RABBIT', 'CAT', 'DUCK', 'DOG', 'BUTTERFLY', 'FOX', 'BEAR']
+      .map(k => 'front_' + k.toLowerCase()).filter(G.hasSprite);
     const w = { fullscreen: true, closed: false, t: 0, idx: 0, update() { this.t++; if (this.t % 150 === 0) this.idx = (this.idx + 1) % Math.max(1, animals.length); if (G.input.pressed('start') || G.input.pressed('a')) { this.closed = true; } },
       draw() {
         const bw = G.era === 0 ? G.DMG[3] : '#ffffff'; G.fillRect(0, 0, G.VW, G.VH, bw);
