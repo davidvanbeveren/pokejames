@@ -35,20 +35,21 @@
 <body data-era="0">
 <div id="loading">loading…</div>
 <div id="game"><canvas id="screen" width="160" height="144"></canvas></div>
-<audio id="bgm-intro" src="audio/intro.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-pallet" src="audio/pallet.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-lab" src="audio/lab.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-route1" src="audio/route1.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-route" src="audio/route.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-town2" src="audio/town2.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-town3" src="audio/town3.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-center" src="audio/center.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-wild" src="audio/wild.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-trainer" src="audio/trainer.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-rival" src="audio/rival.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="bgm-victory" src="audio/victory.mp3?v=390a1375" loop preload="auto"></audio>
-<audio id="sfx-levelup" src="audio/levelup.mp3?v=390a1375" preload="auto"></audio>
-<div id="help"><b>Arrows</b> / <b>WASD</b> move · <b>Z</b> or <b>Space</b> = A (talk, confirm) · <b>X</b> = B (cancel) · <b>Enter</b> = START (menu) · <b>ESC</b> = close chat / back · <b>Shift</b> = SELECT (bike) · <b>B</b> held = run · <b>M</b> = mute</div>
+<audio id="bgm-intro" src="audio/intro.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-pallet" src="audio/pallet.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-lab" src="audio/lab.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-route1" src="audio/route1.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-route" src="audio/route.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-town2" src="audio/town2.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-town3" src="audio/town3.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-center" src="audio/center.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-wild" src="audio/wild.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-trainer" src="audio/trainer.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-rival" src="audio/rival.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-lofi" src="audio/lofi.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="bgm-victory" src="audio/victory.mp3?v=ba7b83e3" loop preload="auto"></audio>
+<audio id="sfx-levelup" src="audio/levelup.mp3?v=ba7b83e3" preload="auto"></audio>
+<div id="help"><b>Arrows</b> / <b>WASD</b> move · <b>Z</b> or <b>Space</b> = A (talk, confirm) · <b>X</b> = B (cancel) · <b>Enter</b> = START (menu) · <b>ESC</b> = close chat / back · <b>Shift</b> = SELECT (bike) · <b>B</b> held = run · <b>L</b> = lofi mode · <b>M</b> = mute</div>
 <div id="touch">
   <div class="row">
     <div class="dpad">
@@ -58,43 +59,43 @@
   </div>
   <div class="sys"><button data-key="select">SELECT</button><button data-key="start">START</button></div>
 </div>
-<script src="js/font.js?v=d396bb95"></script>
-<script src="js/sprites_outdoor.js?v=d396bb95"></script>
-<script src="js/sprites_indoor.js?v=d396bb95"></script>
-<script src="js/sprites_chars_a.js?v=d396bb95"></script>
-<script src="js/sprites_chars_b.js?v=d396bb95"></script>
-<script src="js/sprites_gen1_hero.js?v=d396bb95"></script>
-<script src="js/sprites_hero_kate.js?v=d396bb95"></script>
-<script src="js/sprites_gen1_set1.js?v=d396bb95"></script>
-<script src="js/sprites_gen1_set2.js?v=d396bb95"></script>
-<script src="js/sprites_gen1_set3.js?v=d396bb95"></script>
-<script src="js/sprites_animals_a.js?v=d396bb95"></script>
-<script src="js/sprites_animals_b.js?v=d396bb95"></script>
-<script src="js/sprites_animals_c.js?v=d396bb95"></script>
-<script src="js/sprites_animals_d.js?v=d396bb95"></script>
-<script src="js/sprites_trainers.js?v=d396bb95"></script>
-<script src="js/sprites_extra.js?v=d396bb95"></script>
-<script src="js/sprites_hero_fix.js?v=d396bb95"></script>
-<script src="js/sprites_trainers_gen3.js?v=d396bb95"></script>
-<script src="js/sprites_abbie.js?v=d396bb95"></script>
-<script src="js/sprites_intro.js?v=d396bb95"></script>
-<script src="js/creatures_art.js?v=d396bb95"></script>
-<script src="js/sprites_back_kate.js?v=d396bb95"></script>
-<script src="js/audio.js?v=d396bb95"></script>
-<script src="js/tiles.js?v=d396bb95"></script>
-<script src="js/creatures_data.js?v=d396bb95"></script>
-<script src="js/data.js?v=d396bb95"></script>
-<script src="js/maps_pallet.js?v=d396bb95"></script>
-<script src="js/maps_route1.js?v=d396bb95"></script>
-<script src="js/maps_verdant.js?v=d396bb95"></script>
-<script src="js/maps_route2.js?v=d396bb95"></script>
-<script src="js/maps_violet.js?v=d396bb95"></script>
-<script src="js/maps_violet_interiors.js?v=d396bb95"></script>
-<script src="js/npcs.js?v=d396bb95"></script>
-<script src="js/quotes.js?v=d396bb95"></script>
-<script src="js/engine.js?v=d396bb95"></script>
-<script src="js/ui.js?v=d396bb95"></script>
-<script src="js/battle.js?v=d396bb95"></script>
-<script src="js/game.js?v=d396bb95"></script>
+<script src="js/font.js?v=05de6739"></script>
+<script src="js/sprites_outdoor.js?v=05de6739"></script>
+<script src="js/sprites_indoor.js?v=05de6739"></script>
+<script src="js/sprites_chars_a.js?v=05de6739"></script>
+<script src="js/sprites_chars_b.js?v=05de6739"></script>
+<script src="js/sprites_gen1_hero.js?v=05de6739"></script>
+<script src="js/sprites_hero_kate.js?v=05de6739"></script>
+<script src="js/sprites_gen1_set1.js?v=05de6739"></script>
+<script src="js/sprites_gen1_set2.js?v=05de6739"></script>
+<script src="js/sprites_gen1_set3.js?v=05de6739"></script>
+<script src="js/sprites_animals_a.js?v=05de6739"></script>
+<script src="js/sprites_animals_b.js?v=05de6739"></script>
+<script src="js/sprites_animals_c.js?v=05de6739"></script>
+<script src="js/sprites_animals_d.js?v=05de6739"></script>
+<script src="js/sprites_trainers.js?v=05de6739"></script>
+<script src="js/sprites_extra.js?v=05de6739"></script>
+<script src="js/sprites_hero_fix.js?v=05de6739"></script>
+<script src="js/sprites_trainers_gen3.js?v=05de6739"></script>
+<script src="js/sprites_abbie.js?v=05de6739"></script>
+<script src="js/sprites_intro.js?v=05de6739"></script>
+<script src="js/creatures_art.js?v=05de6739"></script>
+<script src="js/sprites_back_kate.js?v=05de6739"></script>
+<script src="js/audio.js?v=05de6739"></script>
+<script src="js/tiles.js?v=05de6739"></script>
+<script src="js/creatures_data.js?v=05de6739"></script>
+<script src="js/data.js?v=05de6739"></script>
+<script src="js/maps_pallet.js?v=05de6739"></script>
+<script src="js/maps_route1.js?v=05de6739"></script>
+<script src="js/maps_verdant.js?v=05de6739"></script>
+<script src="js/maps_route2.js?v=05de6739"></script>
+<script src="js/maps_violet.js?v=05de6739"></script>
+<script src="js/maps_violet_interiors.js?v=05de6739"></script>
+<script src="js/npcs.js?v=05de6739"></script>
+<script src="js/quotes.js?v=05de6739"></script>
+<script src="js/engine.js?v=05de6739"></script>
+<script src="js/ui.js?v=05de6739"></script>
+<script src="js/battle.js?v=05de6739"></script>
+<script src="js/game.js?v=05de6739"></script>
 </body>
 </html>

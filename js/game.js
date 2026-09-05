@@ -609,6 +609,7 @@
     DATA.TOTAL_BEANS = total;
     G.start();
     G.applyMutePref();
+    if (G.lofiPref() && window.AUDIO && AUDIO.setLofi) AUDIO.setLofi(true);
     G.runScript(S.main());
     document.getElementById('loading').hidden = true;
   });

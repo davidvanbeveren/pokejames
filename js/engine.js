@@ -235,6 +235,17 @@
       'Every animal is now level 99, and your money is locked at $' + G.CHEAT_MONEY + '.']));
   };
 
+  const LOFI_KEY = 'hacktivists_lofi';
+  G.lofiPref = () => { try { return localStorage.getItem(LOFI_KEY) === '1'; } catch (e) { return false; } };
+  G.toggleLofi = function () {
+    if (!window.AUDIO || !AUDIO.setLofi) return;
+    const on = !AUDIO.isLofi();
+    AUDIO.setLofi(on);
+    try { localStorage.setItem(LOFI_KEY, on ? '1' : '0'); } catch (e) {}
+    if (!on) AUDIO.playMusic(G.map && G.map.music);   // back to whatever this place plays
+    G.toast = { text: on ? 'LOFI ON' : 'LOFI OFF', t: 100 };
+  };
+
   G.toggleMute = function () {
     const o = G.state.options; o.sound = !o.sound;
     G.setMutePref(!o.sound);
@@ -244,6 +255,7 @@
   window.addEventListener('keydown', e => {
     if (!e.repeat && (e.code === 'KeyM' || e.key === 'm' || e.key === 'M')) { G.userGesture(); G.toggleMute(); e.preventDefault(); return; }
     if (!e.repeat && (e.code === 'Digit0' || e.key === '0')) { G.userGesture(); G.cheats(); e.preventDefault(); return; }
+    if (!e.repeat && (e.code === 'KeyL' || e.key === 'l' || e.key === 'L')) { G.userGesture(); G.toggleLofi(); e.preventDefault(); return; }
     const k = keyOf(e); if (!k) return;
     if (e.code === 'Tab' || e.code === 'Space' || e.code === 'Backspace' || e.code.startsWith('Arrow')) e.preventDefault();
     if (!e.repeat) Input.set(k, true);

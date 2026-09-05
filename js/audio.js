@@ -1141,7 +1141,8 @@
     wild:    { elId: 'bgm-wild',    fallback: 'wild',    restart: true },  // wild encounters
     trainer: { elId: 'bgm-trainer', fallback: 'trainer', restart: true },  // skeptic debates
     rival:   { elId: 'bgm-rival',   fallback: 'trainer', restart: true },  // DAVID turning up
-    victory: { elId: 'bgm-victory', fallback: 'victory', restart: true }   // winning one over
+    victory: { elId: 'bgm-victory', fallback: 'victory', restart: true },  // winning one over
+    lofi:    { elId: 'bgm-lofi',    fallback: 'title' }                    // LOFI mode: the whole soundtrack
   };
 
   // Recorded one-shots that stand in for the synthesized sfx of the same name.
@@ -1282,7 +1283,18 @@
     applyEraToGraph();
   };
 
+  // LOFI mode swaps the entire soundtrack for one track. Every song routes to the
+  // same stream id, so it keeps playing across maps and battles without restarting.
+  var lofi = false;
+  AUDIO.isLofi = function () { return lofi; };
+  AUDIO.setLofi = function (on) {
+    lofi = !!on;
+    if (lofi) playStream('lofi');
+    // turning it off leaves the caller to start whatever should be playing now
+  };
+
   AUDIO.playMusic = function (id, opts) {
+    if (lofi && streamElement('lofi')) { playStream('lofi', opts); return; }
     if (STREAMS[id]) { playStream(id, opts); return; }
     playSong(id, opts);
   };
