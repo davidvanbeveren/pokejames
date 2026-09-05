@@ -238,7 +238,19 @@
   S.intro = function* () {
     G.state = G.newState(); G.follower = null;
     if (A()) A().playMusic('intro');
-    const w = { fullscreen: true, draw() { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[3] : '#ffffff'); const c = G.getSprite('prof_down_0'); if (c) G.ctx.drawImage(c, Math.round(G.VW / 2 - 24), 16, 48, 48); } };
+    // Intro portraits are drawn at a whole-number scale so they keep their shape.
+    // They are 17x26 sprites; the old code forced them into a 48x48 box, which
+    // stretched them 2.8x wide but only 1.9x tall -- hence the squashed professor.
+    // 'prof_intro' is used when a dedicated portrait exists, else the overworld sprite.
+    const portrait = (name, fallback) => function () {
+      G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[3] : '#ffffff');
+      const c = G.getSprite(G.hasSprite(name) ? name : fallback);
+      if (!c) return;
+      const scale = Math.max(1, Math.floor(58 / c.height));
+      const pw = c.width * scale, ph = c.height * scale;
+      G.ctx.drawImage(c, Math.round(G.VW / 2 - pw / 2), Math.round(14 + (58 - ph) / 2), pw, ph);
+    };
+    const w = { fullscreen: true, draw: portrait('prof_intro', 'prof_down_0') };
     G.push(w); yield* G.fadeIn(12);
     yield* say(['Hello there! Welcome to the world of ANIMALS!', 'My name is OAT! People call me the ANIMAL PROF!']);
     yield* say(['This world is inhabited all over by creatures called ANIMALS!', 'For some people, animals are FOOD. For us... they are FRIENDS.']);
@@ -249,7 +261,7 @@
     if (c === 0) name = yield* UI.nameEntry('YOUR NAME?', 'JAMES');
     G.state.name = name;
     yield* say(['Right! So your name is ' + name + '!']);
-    w.draw = function () { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[3] : '#ffffff'); const c = G.getSprite('hoodie_down_0'); if (c) G.ctx.drawImage(c, Math.round(G.VW / 2 - 24), 16, 48, 48); };
+    w.draw = portrait('rival_intro', 'hoodie_down_0');
     yield* say(['This is my grandson... no, wait. This is DAVID.', 'He used to be fun to hang out with but now all he does is talk about AI.']);
     yield* say(['He has been your rival since you were... hired. Erm, what was his name again?']);
     const tb2 = yield* UI.sayHold(['His name?']);
@@ -258,7 +270,7 @@
     if (c2 === 0) rival = yield* UI.nameEntry('RIVAL NAME?', 'DAVID');
     G.state.rival = rival; DATA.SKEPTICS.RIVAL.name = rival;
     yield* say(['That\'s right! I remember now! His name is ' + rival + '!']);
-    w.draw = function () { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[3] : '#ffffff'); const c = G.getSprite('hero_down_0'); if (c) G.ctx.drawImage(c, Math.round(G.VW / 2 - 24), 16, 48, 48); };
+    w.draw = portrait('hero_intro', 'hero_down_0');
     yield* say([name + '! Your very own tale of KINDNESS is about to unfold!', 'A world of animals awaits! Let\'s go!']);
     yield* G.fadeOut(20); G.pop(w);
     G.mode = 'game';
