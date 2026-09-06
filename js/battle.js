@@ -317,7 +317,7 @@
   B.evolve = function* (a) {
     const from = DATA.SPECIES[a.species], to = DATA.SPECIES[from.evolve.to];
     const S = { from: 'front_' + a.species.toLowerCase(), to: 'front_' + from.evolve.to.toLowerCase(), t: 0, phase: 0 };
-    const w = { fullscreen: true, draw() { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[3] : '#ffffff'); const cx = Math.round(G.VW / 2 - 24), cy = Math.round(G.VH / 2 - 40); const flip = S.phase === 1 && Math.floor(S.t / (S.t > 60 ? 2 : 8)) % 2 === 1; G.drawSprite(flip ? S.to : S.from, cx, cy, { alpha: S.phase === 1 ? 0.9 : 1 }); if (S.phase === 1 && G.era > 0) { G.ctx.globalCompositeOperation = 'lighter'; G.fillRect(cx, cy, 48, 48, 'rgba(255,255,255,0.35)'); G.ctx.globalCompositeOperation = 'source-over'; } G.drawBox(0, G.VH - 48, G.VW, 48); } };
+    const w = { fullscreen: true, draw() { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[3] : '#ffffff'); const cx = Math.round(G.VW / 2 - 24), cy = Math.round(G.VH / 2 - 40); const flip = S.phase === 2 || (S.phase === 1 && Math.floor(S.t / (S.t > 60 ? 2 : 8)) % 2 === 1); G.drawSprite(flip ? S.to : S.from, cx, cy, { alpha: S.phase === 1 ? 0.9 : 1 }); if (S.phase === 1 && G.era > 0) { G.ctx.globalCompositeOperation = 'lighter'; G.fillRect(cx, cy, 48, 48, 'rgba(255,255,255,0.35)'); G.ctx.globalCompositeOperation = 'source-over'; } G.drawBox(0, G.VH - 48, G.VW, 48); } };
     G.push(w); yield* G.fadeIn(8);
     if (A()) A().playMusic('evolve');
     yield* UI.say(['What? ' + a.nick + ' is growing up!'], { auto: 60 });
