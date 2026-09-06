@@ -232,10 +232,17 @@
       for (const m of a.moves) m.pp = m.maxPp;
     }
     st.money = G.CHEAT_MONEY;
+    // every consumable (plus the BIKE), and removeItem stops counting them down
+    for (const id of Object.keys(DATA.ITEMS)) {
+      const d = DATA.ITEMS[id];
+      if (d.use === 'heal' || d.use === 'revive' || d.use === 'food') G.addItem(id, 99);
+    }
+    if (DATA.ITEMS.BIKE) { G.addItem('BIKE'); st.bike = true; }
     if (window.AUDIO) AUDIO.sfx('levelup');
     G.toast = { text: 'CHEATS ON', t: 120 };
     if (window.UI) G.runScript(UI.say(['CHEATS MODE ACTIVATED!',
-      'Every animal is now level 99, and your money is locked at $' + G.CHEAT_MONEY + '.']));
+      'Every animal is now level 99, your money is locked at $' + G.CHEAT_MONEY + ',',
+      'and your BAG has every item. They never run out.']));
   };
 
   const LOFI_KEY = 'hacktivists_lofi';
@@ -297,6 +304,7 @@
   G.removeItem = function (id, qty) {
     qty = qty || 1;
     const i = G.state.items.findIndex(x => x.id === id); if (i < 0) return false;
+    if (G.state.cheats) return true;                       // cheat items never run out
     G.state.items[i].qty -= qty; if (G.state.items[i].qty <= 0) G.state.items.splice(i, 1); return true;
   };
   G.hasItem = id => G.state.items.some(i => i.id === id && i.qty > 0);

@@ -329,6 +329,7 @@
     yield* UI.say([from.name + ' grew up into ' + to.name + '!']);
     yield* B.learnMoves(a, null);
     yield* G.fadeOut(8); G.pop(w);
+    if (A()) A().playMusic(G.map && G.map.music);
   };
 
   B.whiteout = function* () {

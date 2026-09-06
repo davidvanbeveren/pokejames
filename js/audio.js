@@ -1147,7 +1147,8 @@
     gym:     { elId: 'bgm-gym',     fallback: 'gym',     restart: true },  // the CHEF, gym leader
     gymvictory: { elId: 'bgm-gymvictory', fallback: 'victory', restart: true },  // ...and beating him
     party:      { elId: 'bgm-party',      fallback: 'party',   restart: true },  // the surprise party
-    finalrival: { elId: 'bgm-finalrival', fallback: 'trainer', restart: true }   // DAVID at VH HQ
+    finalrival: { elId: 'bgm-finalrival', fallback: 'trainer', restart: true },  // DAVID at VH HQ
+    evolve:     { elId: 'bgm-evolve',     fallback: 'evolve',  restart: true }   // an animal growing up
   };
 
   // Recorded one-shots that stand in for the synthesized sfx of the same name.
