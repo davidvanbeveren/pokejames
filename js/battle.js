@@ -335,12 +335,13 @@
     const st = G.state;
     for (const a of st.party) a.hp = a.maxHp;
     const c = st.lastCenter || { map: 'player_house_2f', x: 3, y: 4, dir: 'down' };
+    const home = !st.lastCenter;   // no SANCTUARY CENTER visited yet: you wake up back at the house
     G.loadMap(c.map, c.x, c.y, c.dir || 'down');
     G.refreshFollower();
     // Fade in BEFORE speaking. The battle leaves the screen fully faded out and
     // G.drawFade paints over every window, so a message shown here used to be an
     // invisible textbox on a black screen -- indistinguishable from a hang.
     yield* G.fadeIn(12);
-    yield* UI.say([st.name + "'s animals need a rest!", st.name + ' hurried back to the SANCTUARY CENTER...']);
+    yield* UI.say([st.name + "'s animals need a rest!", st.name + (home ? ' hurried back home to ABBIE...' : ' hurried back to the SANCTUARY CENTER...')]);
   };
 })();
