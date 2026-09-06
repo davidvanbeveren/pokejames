@@ -502,8 +502,8 @@
       taunt: 'Let me offer you a slice of vegan humble pie!',
       win: 'Okay. That pie was for me. I see that now.' });
     if (A()) A().playMusic(G.map.music);
-    if (r === 'won') yield* say([G.state.rival + ': Fine. FINE. Not bad, but just so you know the sun was in my eyes!',
-      G.state.rival + ': ...don\'t let that go to your head.']);
+    if (r === 'won') yield* say([G.state.rival + ': Fine. FINE. Not bad.',
+      G.state.rival + ': By the way I heard it was your birthday. If I could choose any rival, I\'d choose you. But don\'t let that go to your head! Happy birthday!']);
     rival.move = 'wander'; rival.range = 2;   // he sticks around to be talked to
     return true;
   };
