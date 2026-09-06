@@ -302,8 +302,8 @@
     yield* say(['This is my grandson... no, wait. This is DAVID.', 'He used to be fun to hang out with but now all he does is talk about AI.']);
     yield* say(['He has been your rival since you were... hired. Erm, what was his name again?']);
     const tb2 = yield* UI.sayHold(['His name?']);
-    const c2 = yield* UI.choose(['NEW NAME', 'DAVID', 'FOUNDER', 'BOSS'], { x: 0, y: 0, cancel: false }); G.pop(tb2);
-    let rival = ['', 'DAVID', 'FOUNDER', 'BOSS'][c2];
+    const c2 = yield* UI.choose(['NEW NAME', 'DAVID', 'TYSON', 'LEWIS'], { x: 0, y: 0, cancel: false }); G.pop(tb2);
+    let rival = ['', 'DAVID', 'TYSON', 'LEWIS'][c2];
     if (c2 === 0) rival = yield* UI.nameEntry('RIVAL NAME?', 'DAVID');
     G.state.rival = rival; DATA.SKEPTICS.RIVAL.name = rival;
     yield* say(['That\'s right! I remember now! His name is ' + rival + '!']);
