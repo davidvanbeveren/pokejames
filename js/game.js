@@ -15,7 +15,7 @@
     if (e.def && e.def.gift && !G.flag(e.def.gift.flag)) {
       yield* say(e.def.gift.lines || e.dialog || ['...']);
       const g = e.def.gift; G.addItem(g.item, g.qty || 1); G.flag(g.flag, true);
-      if (A()) A().sfx('pickup');
+      if (A()) A().sfx('item');
       yield* say([G.state.name + ' received ' + (g.qty > 1 ? g.qty + ' ' : '') + g.item + '!']);
       if (g.after) yield* say(g.after);
       return;
@@ -32,7 +32,7 @@
     G.state.picked[o.id] = true;
     const qty = o.qty || 1;
     if (o.item === 'VEGAN BEANS') { G.addItem('VEGAN BEANS', qty); if (A()) A().sfx('beans'); yield* say([G.state.name + ' found VEGAN BEANS! (' + G.state.beans + '/' + DATA.TOTAL_BEANS + ')']); yield* S.beanRewards(); return; }
-    G.addItem(o.item, qty); if (A()) A().sfx('pickup');
+    G.addItem(o.item, qty); if (A()) A().sfx('item');
     yield* say([G.state.name + ' found ' + (qty > 1 ? qty + ' ' : '') + o.item + '!']);
   };
   S.beanRewards = function* () {
@@ -106,9 +106,11 @@
   };
   S.trainerBattle = function* (e) {
     const t = e.trainer; const sk = DATA.SKEPTICS[t.class];
+    // a trainer can insist you beat someone else first (the gym leader waits for DR. B12)
+    if (t.requires && !G.state.defeated[t.requires]) { yield* say(t.requiresLines || [sk.name + ': Not yet. Someone else wants a word first.']); return; }
     if (!G.state.party.length) { yield* say(t.intro || [sk.taunt]); yield* say(['...but you have no animals to introduce. Come back later!']); return; }
     if (t.intro) yield* say(t.intro);
-    const r = yield* BATTLE.trainer({ skeptic: t.class, name: t.name || sk.name, level: t.level, taunt: t.taunt, win: t.win, music: t.music, prizeMult: t.prizeMult });
+    const r = yield* BATTLE.trainer({ skeptic: t.class, name: t.name || sk.name, level: t.level, taunt: t.taunt, win: t.win, music: t.music, victoryMusic: t.victoryMusic, prizeMult: t.prizeMult });
     if (r === 'won') {
       G.state.defeated[e.id] = true;
       if (t.after) yield* say(t.after);
@@ -310,6 +312,7 @@
   S.prof_stop = function* (trig) {
     if (G.flag('starter')) return null;
     const p = G.player;
+    if (A()) A().playMusic('hurry');
     yield* say(['PROF. OAT: Hey! Wait! Don\'t go out!']);
     // professor appears behind the player
     const prof = G.makeEntity({ id: 'prof_tmp', sprite: 'prof', x: p.x, y: p.y + 2, dir: 'up', move: 'static' });
@@ -323,6 +326,7 @@
     yield* G.fadeOut(16);
     G.entities = G.entities.filter(e => e !== prof);
     G.loadMap('lab', 5, 8, 'up');
+    if (A()) A().playMusic('hurry');   // keep it going over the lab's own theme
     const labProf = G.entities.find(e => e.id === 'prof');
     if (labProf) { labProf.x = 5; labProf.y = 7; labProf.dir = 'up'; }
     yield* G.fadeIn(16);
@@ -333,6 +337,14 @@
       yield* G.wait(12);
     }
     yield* say(['PROF. OAT: ' + G.state.name + '! Here, on the table, are 3 animals I rescued this morning.', 'They each need a home... and a friend. Go on! Choose one!']);
+    const labRival = G.entities.find(e => e.id === 'rival');
+    if (labRival) {
+      G.faceEach(labRival, G.player);
+      yield* say([G.state.rival + ': Aww, but I want to pick first!']);
+      if (labProf) G.faceEach(labProf, labRival);
+      yield* say(['PROF. OAT: Patience, ' + G.state.rival + '. God damn.']);
+      if (labProf) labProf.dir = 'up';
+    }
     G.flag('choose_starter', true);
     return true;
   };
@@ -381,12 +393,14 @@
       }
       G.faceEach(rival, G.player);
       yield* say([G.state.rival + ': ' + G.state.name + '! Let\'s see whose animal is happier! Come on, I\'ll take you on!']);
-      const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 4, music: 'rival', taunt: 'Let\'s see whose animal is happier!', win: 'Okay, okay. Yours is happier. For now!' });
+      const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 4, music: 'trainer', taunt: 'Let\'s see whose animal is happier!', win: 'Okay, okay. Yours is happier. For now!' });
       if (A()) A().playMusic(G.map.music);
       if (r === 'won') {
         yield* say([G.state.rival + ': I\'m going to rescue WAY more animals than you!', G.state.rival + ': Smell ya later!']);
-        yield* G.walk(rival, ['down', 'down', 'down', 'down', 'down']);
-        rival.hidden = true;
+        yield* S.walkTo(rival, 5, 8);                 // over to the door...
+        yield* G.walk(rival, ['down']);                //  ...onto the mat
+        if (A()) A().sfx('door');
+        rival.hidden = true;                          //  ...and out
       }
     }
     yield* say(['PROF. OAT: ' + G.state.name + ', take this too. It\'s the FRIENDDEX!', 'It records every animal you meet and rescue. It has 3 NOOCH tucked in the back pocket.']);
@@ -433,7 +447,7 @@
     yield* G.walk(rival, ['down', 'down', 'down']);
     p.dir = 'up';
     yield* say([G.state.rival + ': My animals are SO happy. They have their own Discord server.', G.state.rival + ': Let\'s see how yours are doing!']);
-    const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 9, music: 'rival', taunt: 'Let\'s see how yours are doing!', win: 'Okay... they do look happy. Fine!' });
+    const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 9, music: 'trainer', taunt: 'Let\'s see how yours are doing!', win: 'Okay... they do look happy. Fine!' });
     if (A()) A().playMusic(G.map.music);
     if (r === 'won') { yield* say([G.state.rival + ': Hmph. I\'ll be in VIOLET CITY. Something is happening there... you\'ll see!']); yield* G.walk(rival, ['up', 'up', 'up', 'up']); }
     G.entities = G.entities.filter(e => e !== rival);
@@ -452,7 +466,7 @@
     yield* S.approach(rival);
     yield* say([G.state.rival + ': So you think you\'re hot stuff after your OPERATIONS DIRECTOR days?',
       G.state.rival + ': Let me offer you a slice of vegan humble pie!']);
-    const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 16, music: 'rival',
+    const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 16, music: 'trainer',
       taunt: 'Let me offer you a slice of vegan humble pie!',
       win: 'Okay. That pie was for me. I see that now.' });
     if (A()) A().playMusic(G.map.music);

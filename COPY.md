@@ -43,406 +43,415 @@ ALL the VEGAN BEANS! The bean spirits are pleased.
 [game:41.2]
 {NAME} found $5000 tucked in the bean jar!
 
-[game:81.1]
+[game:109.1]
 ...but you have no animals to introduce. Come back later!
 
-[game:93.1]
+[game:121.1]
 Would you like to SAVE the game?
 
-[game:96.1]
+[game:124.1]
 SAVING... Don't turn off the power!
 
-[game:97.1]
+[game:125.1]
 The save failed! Your browser may be blocking storage.
 
-[game:99.1]
+[game:127.1]
 {NAME} saved the game!
 
-[game:127.1]
+[game:155.1]
 {NAME} turned on the PC.
 
-[game:131.1]
+[game:159.1]
 No animals are resting in the SANCTUARY.
 
-[game:132.1]
+[game:160.1]
 Your party is full!
 
-[game:135.1]
+[game:163.1]
  joined the party!
 
-[game:137.1]
+[game:165.1]
 You need at least one animal with you!
 
-[game:139.1]
+[game:167.1]
  is resting at the SANCTUARY.
 
-[game:141.1]
+[game:169.1]
 1 new mail!
 
-[game:141.2]
+[game:169.2]
 From: THE WHOLE TEAM
 
-[game:141.3]
+[game:169.3]
 Subject: Happy Birthday!!!
 
-[game:141.4]
+[game:169.4]
 {NAME}, thank you for everything you do for the animals and for us. Now go rescue some friends!
 
-[game:144.1]
+[game:172.1]
 {NAME} turned off the PC.
 
-[game:149.1]
+[game:177.1]
 Welcome to our SANCTUARY CENTER!
 
-[game:149.2]
+[game:177.2]
 We help tired animals feel fighting fit!
 
-[game:150.1]
+[game:178.1]
 Shall we look after your animals?
 
-[game:152.1]
+[game:180.1]
 We hope to see you again!
 
-[game:153.1]
+[game:181.1]
 ...you have no animals with you! But you are always welcome.
 
-[game:154.1]
+[game:182.1]
 OK, I'll take your animals for a few seconds.
 
-[game:162.1]
+[game:190.1]
 Thank you! Your animals are happy and healthy!
 
-[game:162.2]
+[game:190.2]
 We hope to see you again!
 
-[game:168.1]
+[game:196.1]
 Welcome to the VEGAN MART! Everything here is 100% plant-based. How may I help you?
 
-[game:180.1]
+[game:208.1]
 You can't carry any more of those!
 
-[game:182.1]
+[game:210.1]
 You don't have enough money.
 
-[game:186.1]
+[game:214.1]
 ? That will be $
 
-[game:190.1]
+[game:219.1]
 Here you are! Thank you!
 
-[game:195.1]
+[game:224.1]
 You have nothing to sell.
 
-[game:203.1]
+[game:232.1]
 I can pay $
 
-[game:207.1]
+[game:236.1]
 Thank you!
 
-[game:211.1]
+[game:240.1]
 Thank you! Come again!
 
-[game:221.1]
+[game:250.1]
 Huh? Something feels different here...
 
-[game:224.1]
+[game:253.1]
 The world is in COLOR!
 
-[game:224.2]
+[game:253.2]
 VERDANT TOWN — where the color comes from.
 
-[game:226.1]
+[game:255.1]
 Whoa. The air feels crisper. The colors deeper.
 
-[game:229.1]
+[game:258.1]
 Everything looks EVEN BETTER!
 
-[game:229.2]
+[game:258.2]
 Welcome to VIOLET CITY. Hold B to run!
 
-[game:242.1]
+[game:283.1]
 Hello there! Welcome to the world of ANIMALS!
 
-[game:242.2]
+[game:283.2]
 My name is OAT! People call me the ANIMAL PROF!
 
-[game:243.1]
+[game:284.1]
 This world is inhabited all over by creatures called ANIMALS!
 
-[game:243.2]
+[game:284.2]
 For some people, animals are FOOD. For us... they are FRIENDS.
 
-[game:244.1]
+[game:285.1]
 Myself... I study them as a profession. And I love them. A lot.
 
-[game:245.1]
+[game:286.1]
 First, what is your name?
 
-[game:250.1]
+[game:291.1]
 Right! So your name is 
 
-[game:252.1]
+[game:293.1]
 This is my grandson... no, wait. This is DAVID.
 
-[game:252.2]
+[game:293.2]
 He used to be fun to hang out with but now all he does is talk about AI.
 
-[game:253.1]
+[game:294.1]
 He has been your rival since you were... hired. Erm, what was his name again?
 
-[game:254.1]
+[game:295.1]
 His name?
 
-[game:259.1]
+[game:300.1]
 That's right! I remember now! His name is 
 
-[game:261.1]
+[game:302.1]
 ! Your very own tale of KINDNESS is about to unfold!
 
-[game:261.2]
+[game:302.2]
 A world of animals awaits! Let's go!
 
-[game:272.1]
+[game:314.1]
 PROF. OAT: Hey! Wait! Don't go out!
 
-[game:280.1]
+[game:322.1]
 PROF. OAT: It's unsafe! Wild ANIMALS live in tall grass!
 
-[game:280.2]
+[game:322.2]
 They are hungry, scared, and they need a friend who knows what they're doing!
 
-[game:281.1]
+[game:323.1]
 PROF. OAT: I know! Here, come with me!
 
-[game:288.1]
-PROF. OAT: {NAME}! Here, on the table, are 3 animals I rescued this morning.
-
-[game:288.2]
-They each need a home... and a friend. Go on! Choose one!
-
-[game:293.1]
-PROF. OAT: Head north to VERDANT TOWN! The SANCTUARY CENTER there heals tired animals.
-
-[game:293.2]
-And say hi to the team for me!
-
-[game:294.1]
-PROF. OAT: Go on! Pick an animal from the table!
-
-[game:295.1]
-PROF. OAT: Oh, {NAME}! I was about to come and find you.
-
-[game:295.2]
-Try heading north and I'll... no wait. Actually, come here. Look at the table!
-
-[game:299.1]
-The basket is empty. Just some hay.
-
-[game:300.1]
-A little 
-
-[game:300.2]
- is snoozing in the basket.
-
-[game:302.1]
-A little 
-
-[game:302.2]
- looks up at you.
-
-[game:303.1]
-Do you want to take 
-
-[game:303.2]
- with you?
-
-[game:308.1]
-PROF. OAT: This 
-
-[game:308.2]
- is really energetic!
-
-[game:309.1]
-Give a nickname to 
-
-[game:314.1]
-{NAME} received 
-
-[game:322.1]
-{RIVAL}: Ha! Then I'll take 
-
-[game:324.1]
-{RIVAL}: {NAME}! Let's see whose animal is happier! Come on, I'll take you on!
-
-[game:328.1]
-{RIVAL}: I'm going to rescue WAY more animals than you!
-
-[game:328.2]
-{RIVAL}: Smell ya later!
-
-[game:333.1]
-PROF. OAT: {NAME}, take this too. It's the FRIENDDEX!
-
-[game:333.2]
-It records every animal you meet and rescue. It has 3 NOOCH tucked in the back pocket.
-
-[game:336.1]
-{NAME} got the FRIENDDEX, 3 NOOCH and some snacks!
+[game:331.1]
+PROF. OAT: Come on through. They are right over here.
 
 [game:337.1]
-PROF. OAT: In tall grass you'll meet hungry animals. FEED them or HELP them until they trust you.
+PROF. OAT: {NAME}! Here, on the table, are 3 animals I rescued this morning.
 
 [game:337.2]
-Some people will argue with you. Let your animal's charm do the talking!
-
-[game:337.3]
-Now go! Head north to VERDANT TOWN. The team is waiting!
+They each need a home... and a friend. Go on! Choose one!
 
 [game:341.1]
-ABBIE: {NAME}! You're finally up. I let you sleep in.
-
-[game:341.2]
-ABBIE: PROF. OAT next door was looking for you. Off you go!
-
-[game:342.1]
-ABBIE: All activists leave home someday. It's written in the bylaws.
-
-[game:342.2]
-ABBIE: Go on, save the world. I'll keep the kettle on.
-
-[game:342.3]
-ABBIE: Rest up before you go!
+{RIVAL}: Aww, but I want to pick first!
 
 [game:343.1]
-Your animals are happy and healthy!
-
-[game:344.1]
-ABBIE: Rescue lots of friends! And eat something — there are cookies in the jar. I made them.
+PROF. OAT: Patience, {RIVAL}. God damn.
 
 [game:350.1]
-An enormous DUCK is fast asleep across the path. Zzz...
+PROF. OAT: Head north to VERDANT TOWN! The SANCTUARY CENTER there heals tired animals.
+
+[game:350.2]
+And say hi to the team for me!
 
 [game:351.1]
-It looks hungry, even in its sleep. Maybe the VEGAN MART sells something they would like.
+PROF. OAT: Go on! Pick an animal from the table!
 
 [game:352.1]
-Offer some OATS?
+PROF. OAT: Oh, {NAME}! I was about to come and find you.
+
+[game:352.2]
+Try heading north and I'll... no wait. Actually, come here. Look at the table!
+
+[game:356.1]
+The basket is empty. Just some hay.
 
 [game:357.1]
-The DUCK sniffed... and woke up!
+A little 
 
 [game:357.2]
-It yawns, enormously, and blinks down at you.
+ is snoozing in the basket.
 
-[game:361.1]
-The DUCK ambled off to nap somewhere quieter. The path is clear!
+[game:359.1]
+A little 
 
-[game:362.1]
-The path is clear!
+[game:359.2]
+ looks up at you.
 
-[game:371.1]
-{RIVAL}: Hey! {NAME}!
+[game:360.1]
+Do you want to take 
 
-[game:376.1]
-{RIVAL}: My animals are SO happy. They have their own Discord server.
+[game:360.2]
+ with you?
 
-[game:376.2]
-{RIVAL}: Let's see how yours are doing!
+[game:365.1]
+PROF. OAT: This 
 
-[game:379.1]
-{RIVAL}: Hmph. I'll be in VIOLET CITY. Something is happening there... you'll see!
+[game:365.2]
+ is really energetic!
 
-[game:389.1]
-{RIVAL}: {NAME}! Don't you walk past me.
+[game:366.1]
+Give a nickname to 
 
-[game:394.1]
-{RIVAL}: So you think you're hot stuff after your OPERATIONS DIRECTOR days?
+[game:372.1]
+{NAME} received 
 
-[game:400.1]
-{RIVAL}: Fine. FINE. Not bad, but just so you know the sun was in my eyes!
+[game:380.1]
+{RIVAL}: Ha! Then I'll take 
+
+[game:393.1]
+{RIVAL}: {NAME}! Let's see whose animal is happier! Come on, I'll take you on!
+
+[game:397.1]
+{RIVAL}: I'm going to rescue WAY more animals than you!
+
+[game:397.2]
+{RIVAL}: Smell ya later!
+
+[game:404.1]
+PROF. OAT: {NAME}, take this too. It's the FRIENDDEX!
+
+[game:404.2]
+It records every animal you meet and rescue. It has 3 NOOCH tucked in the back pocket.
+
+[game:407.1]
+{NAME} got the FRIENDDEX, 3 NOOCH and some snacks!
 
 [game:408.1]
-A statue of a pigeon. The plaque reads: "Underrated. Unbothered."
+PROF. OAT: In tall grass you'll meet hungry animals. FEED them or HELP them until they trust you.
 
-[game:409.1]
-A PIGEON is perched on the statue, looking iridescent and unbothered.
+[game:408.2]
+Some people will argue with you. Let your animal's charm do the talking!
 
-[game:410.1]
-It eyes your empty hands with disappointment.
+[game:408.3]
+Now go! Head north to VERDANT TOWN. The team is waiting!
 
-[game:411.1]
-Offer some SEEDS?
+[game:412.1]
+ABBIE: {NAME}! You're finally up. I let you sleep in.
+
+[game:412.2]
+ABBIE: PROF. OAT next door was looking for you. Off you go!
+
+[game:413.1]
+ABBIE: All activists leave home someday. It's written in the bylaws.
+
+[game:413.2]
+ABBIE: Go on, save the world. I'll keep the kettle on.
+
+[game:413.3]
+ABBIE: Rest up before you go!
+
+[game:414.1]
+Your animals are happy and healthy!
 
 [game:415.1]
-The legendary PIGEON chose you. The city will never be the same.
+ABBIE: Rescue lots of friends! And eat something — there are cookies in the jar. I made them.
 
-[game:416.1]
-The PIGEON returned to its statue. It will wait. Pigeons are patient.
+[game:421.1]
+An enormous DUCK is fast asleep across the path. Zzz...
+
+[game:422.1]
+It looks hungry, even in its sleep. Maybe the VEGAN MART sells something they would like.
 
 [game:423.1]
-{NAME} received the COMPASSION BADGE!
-
-[game:423.2]
-CHEF: And take this... a PARTY INVITE. Everyone is waiting for you at the VIOLET HALL. Go on!
+Offer some OATS?
 
 [game:428.1]
-The door is locked. A note reads: "Come back with the COMPASSION BADGE!"
+The DUCK sniffed... and woke up!
 
-[game:440.1]
-It's dark in here.
+[game:428.2]
+It yawns, enormously, and blinks down at you.
 
-[game:446.1]
-EVERYONE: SURPRISE!!!
+[game:432.1]
+The DUCK ambled off to nap somewhere quieter. The path is clear!
 
-[game:446.2]
-EVERYONE: HAPPY BIRTHDAY, {NAME}!
+[game:433.1]
+The path is clear!
 
-[game:449.1]
-KATE: We made you a game. It has 
+[game:442.1]
+{RIVAL}: Hey! {NAME}!
 
-[game:449.2]
- animals and zero nutritional value.
+[game:447.1]
+{RIVAL}: My animals are SO happy. They have their own Discord server.
+
+[game:447.2]
+{RIVAL}: Let's see how yours are doing!
 
 [game:450.1]
+{RIVAL}: Hmph. I'll be in VIOLET CITY. Something is happening there... you'll see!
+
+[game:460.1]
+{RIVAL}: {NAME}! Don't you walk past me.
+
+[game:465.1]
+{RIVAL}: So you think you're hot stuff after your OPERATIONS DIRECTOR days?
+
+[game:471.1]
+{RIVAL}: Fine. FINE. Not bad, but just so you know the sun was in my eyes!
+
+[game:479.1]
+A statue of a pigeon. The plaque reads: "Underrated. Unbothered."
+
+[game:480.1]
+A PIGEON is perched on the statue, looking iridescent and unbothered.
+
+[game:481.1]
+It eyes your empty hands with disappointment.
+
+[game:482.1]
+Offer some SEEDS?
+
+[game:486.1]
+The legendary PIGEON chose you. The city will never be the same.
+
+[game:487.1]
+The PIGEON returned to its statue. It will wait. Pigeons are patient.
+
+[game:494.1]
+{NAME} received the COMPASSION BADGE!
+
+[game:494.2]
+CHEF: And take this... a PARTY INVITE. Everyone is waiting for you at the VIOLET HALL. Go on!
+
+[game:499.1]
+The door is locked. A note reads: "Come back with the COMPASSION BADGE!"
+
+[game:511.1]
+It's dark in here.
+
+[game:517.1]
+EVERYONE: SURPRISE!!!
+
+[game:517.2]
+EVERYONE: HAPPY BIRTHDAY, {NAME}!
+
+[game:520.1]
+KATE: We made you a game. It has 
+
+[game:520.2]
+ animals and zero nutritional value.
+
+[game:521.1]
 {RIVAL}: I told you something was happening in VIOLET CITY!
 
-[game:451.1]
+[game:522.1]
 GABRIELĖ: The cake is vegan. The NOOCH is vegan. Even the pixels are vegan.
 
-[game:452.1]
+[game:523.1]
 VIKRAM: Bella says woof. That's "happy birthday" in dog.
 
-[game:453.1]
+[game:524.1]
 EVERYONE: Thank you for everything you do for the animals... and for us!
 
-[game:457.1]
+[game:528.1]
 A birthday jingle plays. Someone is crying. It is DAVID.
 
-[game:459.1]
+[game:530.1]
 The party continues! Talk to everyone. Happy Birthday!
 
-[game:504.1]
+[game:575.1]
 DEV WARP: 
 
-[game:504.2]
+[game:575.2]
 . Reload without ?map= to play properly.
 
-[game:522.1]
+[game:593.1]
 The save data could not be read. Please start a NEW GAME.
 
-[game:530.1]
+[game:601.1]
 The save data could not be loaded. Please start a NEW GAME.
 
-[game:533.1]
+[game:604.1]
  animal was
 
-[game:533.2]
+[game:604.2]
  animals were
 
-[game:533.3]
+[game:604.3]
 t be found.", 
 
-[game:537.1]
+[game:608.1]
 Start a new game? The old save will be replaced when you next SAVE.
 
 ### js/battle.js
@@ -451,7 +460,7 @@ Start a new game? The old save will be replaced when you next SAVE.
  gained 
 
 [battle:75.2]
- KINDNESS EXP!
+ VEGAN XP!
 
 [battle:78.1]
  grew to level 
@@ -537,61 +546,67 @@ Come back,
 [battle:186.1]
  joined your SANCTUARY!
 
-[battle:188.1]
-Give a nickname to 
+[battle:189.1]
+A grateful passer-by donated $
+
+[battle:189.2]
+ to the sanctuary!
 
 [battle:191.1]
+Give a nickname to 
+
+[battle:194.1]
 Your party is full. 
 
-[battle:191.2]
+[battle:194.2]
  was sent to the SANCTUARY.
 
-[battle:204.1]
+[battle:207.1]
  has no charm left in it...
 
-[battle:204.2]
+[battle:207.2]
 TIRED SMILE
 
-[battle:239.1]
+[battle:246.1]
  wants to debate!
 
-[battle:253.1]
+[battle:260.1]
 Send out which?
 
-[battle:253.2]
+[battle:260.2]
  is too tired!
 
-[battle:253.3]
+[battle:260.3]
 Come back, 
 
-[battle:262.1]
+[battle:269.1]
 s super effective!"); else if (r.mult < 1) yield* msg(S, "It
 
-[battle:279.1]
+[battle:286.1]
  was won over!
 
-[battle:284.1]
+[battle:291.1]
  got $
 
-[battle:284.2]
+[battle:291.2]
  for the outreach!
 
-[battle:289.1]
+[battle:296.1]
  is too tired to go on!
 
-[battle:292.1]
+[battle:299.1]
  is out of animals with energy!
 
-[battle:316.1]
+[battle:323.1]
 What? 
 
-[battle:316.2]
+[battle:323.2]
  is growing up!
 
-[battle:322.1]
+[battle:329.1]
  grew up into 
 
-[battle:337.1]
+[battle:344.1]
 s animals need a rest!", st.name + 
 
 ### js/ui.js
@@ -650,12 +665,12 @@ I'm raising a BUNNY! It's so soft!
 Technically it's raising me.
 
 [pallet.pallet_oldman.dialog]  — NPC at 3,11
-I swim in this pond every morning.
-The water is lovely. The ducks disagree.
+I put a camera in my backyard to watch the hedgehogs!
+Did you know a group of hedgehogs is called an ARRAY?
 
 [pallet.pallet_kid.dialog]  — NPC at 15,14
-Everything here is black and white...
-Mom says the world gets colorful when you head north!
+SEBASTIAN: Have you heard about Kickstarting 4 Good? No? You haven't?
+SEBASTIAN: That's too bad!
 
 [pallet.pallet_ximena.dialog]  — NPC at 7,4
 XIMENA: Community Management! I keep the DISCORD kind and the memes fresh.
@@ -825,8 +840,7 @@ TOURIST: I'm visiting from BERLIN! The vegan food there is the best in the world
 TOURIST: Don't tell LONDON I said that. LONDON is also great. Ugh, they're both great.
 
 [verdant.verdant_cinephile.dialog]  — NPC at 4,11
-CINEPHILE: I only watch world cinema. Subtitled. Preferably in black and white.
-CINEPHILE: PALLET TOWN is my favorite film.
+NICK: Have you seen KATE? She yelled "DESIGN THIS" and I haven't seen her for 3 days since.
 
 [verdant.verdant_woman.dialog]  — NPC at 14,9
 ROUTE 2 is north. I heard a DUCK fell asleep on the road. Poor thing looks hungry.
@@ -858,8 +872,8 @@ Strong opinions.
 ### verdant_house1 — DISCORD HOUSE
 
 [verdant_house1.verdant_house1_hoodie.dialog]  — NPC at 5,4
-This is the DISCORD house. 2,600 volunteers, one very active #cat-pics channel.
-Ping me if the server's ever quiet. It never is.
+I'm working on my next trip playlist!
+Have you heard the DRACULA song? I can't get it out of my head!
 
 ### verdant_house2 — VERDANT HOUSE
 
@@ -887,8 +901,8 @@ SLOW DOWN:
 FRIENDS CROSSING
 
 [route2.route2_oldman.dialog]  — NPC at 7,29
-A DUCK is asleep on the path. It looks HUNGRY.
-The VEGAN MART sells OATS. Just saying.
+GERARD: I need to merge a PR in the next town but this DUCK is in the way!
+GERARD: Grrr. But he's so cute...
 
 [route2.r2_influencer.intro]  — before the battle
 INFLUENCER: Ew, is that a FARM ANIMAL? My followers would NOT approve.
@@ -913,8 +927,8 @@ ELIZABETH: Website Designer at VIOLET STUDIOS. I spend weekends with sanctuary a
 ELIZABETH: This town is basically my ideal weekend. Woodland walks and goats.
 
 [route2.route2_kid.dialog]  — NPC at 13,7
-VIOLET CITY is just ahead!
-My cousin says it looks even better than here. No pressure, ROUTE 2.
+ANNIKA: Have you met my little EZRA?
+ANNIKA: Pay the belly rub tax now, or face the consequences.
 
 [route2.route2_duck.dialog]  — NPC at 9,32
 QUACK!
@@ -1180,7 +1194,7 @@ Peep! (Confetti in its feathers.)
 ### violet_house1 — SWIMMER'S HOUSE
 
 [violet_house1.vh1_swimmer.dialog]  — NPC at 5,4
-SWIMMER: The pool here is heated!
+SWIMMER: The pool at AVA is heated!
 SWIMMER: Jump in, just do it, it'll be fine!
 
 ### violet_house2 — GOOSE HOUSE
@@ -1401,8 +1415,7 @@ TOURIST: Don't tell LONDON I said that. LONDON is also great. Ugh, they're both 
 ### CINEPHILE
 
 [team.cinephile.dialog]  — on talking to them
-CINEPHILE: I only watch world cinema. Subtitled. Preferably in black and white.
-CINEPHILE: PALLET TOWN is my favorite film.
+NICK: Have you seen KATE? She yelled "DESIGN THIS" and I haven't seen her for 3 days since.
 
 ### SWIMMER
 

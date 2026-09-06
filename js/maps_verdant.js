@@ -147,7 +147,7 @@
     objects: [
       { type: 'warp', x: 4, y: 7, map: 'verdant', tx: 20, ty: 20, dir: 'down' },
       { type: 'npc', id: 'verdant_house1_hoodie', x: 5, y: 4, sprite: 'hoodie', dir: 'down', move: 'static',
-        dialog: ['This is the DISCORD house. 2,600 volunteers, one very active #cat-pics channel.', 'Ping me if the server\'s ever quiet. It never is.'] },
+        dialog: ['I\'m working on my next trip playlist!', 'Have you heard the DRACULA song? I can\'t get it out of my head!'] },
     ],
   };
 

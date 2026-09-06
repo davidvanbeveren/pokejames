@@ -285,7 +285,7 @@
         for (let i = 0; i < 12; i++) { S.enemyAlpha = 1 - i / 12; yield null; yield null; } S.enemyVisible = false;
         yield* msgWait(S, S.enemyName + ' was won over!');
         if (!sk.rival) st.converted++;
-        if (A()) A().playMusic('victory');
+        if (A()) A().playMusic(cfg.victoryMusic || 'victory');
         yield* msgWait(S, S.enemyName + ': ' + (cfg.win || sk.win));
         const prize = Math.floor(sk.prize * level * (cfg.prizeMult || 1) / 10) * 5;
         st.money += prize; yield* msgWait(S, st.name + ' got $' + prize + ' for the outreach!');

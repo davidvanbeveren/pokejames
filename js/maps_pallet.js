@@ -35,9 +35,9 @@
       { type: 'npc', id: 'pallet_girl', x: 13, y: 5, sprite: 'girl', pal: { t: '#e05070', h: '#a05020' }, dir: 'down', move: 'wander', range: 2,
         dialog: G => G.flag('starter') ? ['I heard you got an animal from PROF. OAT!', 'Feed them what they love and they will trust you fast.'] : ['I\'m raising a BUNNY! It\'s so soft!', 'Technically it\'s raising me.'] },
       { type: 'npc', id: 'pallet_oldman', x: 3, y: 11, sprite: 'oldman', dir: 'left', move: 'look',
-        dialog: ['I swim in this pond every morning.', 'The water is lovely. The ducks disagree.'] },
+        dialog: ['I put a camera in my backyard to watch the hedgehogs!', 'Did you know a group of hedgehogs is called an ARRAY?'] },
       { type: 'npc', id: 'pallet_kid', x: 15, y: 14, sprite: 'kid', pal: { a: '#3050c0' }, dir: 'down', move: 'wander', range: 2,
-        dialog: ['Everything here is black and white...', 'Mom says the world gets colorful when you head north!'] },
+        dialog: ['SEBASTIAN: Have you heard about Kickstarting 4 Good? No? You haven\'t?', 'SEBASTIAN: That\'s too bad!'] },
       // ---- team members: the first birthday wishes, before the world turns colour
       { type: 'npc', id: 'pallet_ximena', team: 'ximena', x: 7, y: 4, dir: 'down', move: 'wander', range: 2 },
       { type: 'npc', id: 'pallet_steven', team: 'steven', x: 13, y: 4, dir: 'down', move: 'wander', range: 2 },

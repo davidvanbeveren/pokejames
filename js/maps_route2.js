@@ -60,7 +60,7 @@
       { type: 'npc', id: 'sleeping_cow', sprite: 'ow_duck', animal: true, x: 9, y: 26, dir: 'left', move: 'static', script: 'sleeping_cow', unless: 'cow_gone' },
       { type: 'item', id: 'route2_hay', x: 11, y: 28, item: 'OATS', qty: 1 },
       { type: 'npc', id: 'route2_oldman', sprite: 'oldman', x: 7, y: 29, dir: 'right', move: 'look',
-        dialog: ['A DUCK is asleep on the path. It looks HUNGRY.', 'The VEGAN MART sells OATS. Just saying.'] },
+        dialog: ['GERARD: I need to merge a PR in the next town but this DUCK is in the way!', 'GERARD: Grrr. But he\'s so cute...'] },
 
       // ---- rival battle, about two thirds of the way north
       { type: 'trigger', id: 'rival2', x: 9, y: 13, w: 2, h: 1, script: 'rival_route2' },
@@ -82,7 +82,7 @@
       // ---- friendly NPCs
       { type: 'npc', team: 'elizabeth', id: 'route2_elizabeth', x: 6, y: 17, dir: 'down', move: 'wander', range: 2 },
       { type: 'npc', id: 'route2_kid', sprite: 'kid', x: 13, y: 7, dir: 'left', move: 'wander', range: 2,
-        dialog: ['VIOLET CITY is just ahead!', 'My cousin says it looks even better than here. No pressure, ROUTE 2.'] },
+        dialog: ['ANNIKA: Have you met my little EZRA?', 'ANNIKA: Pay the belly rub tax now, or face the consequences.'] },
 
       // ---- pond animals
       { type: 'npc', id: 'route2_duck', sprite: 'ow_duck', animal: true, x: 9, y: 32, dir: 'down', move: 'wander', range: 2, dialog: ['QUACK!'] },

@@ -150,7 +150,8 @@
             intro: ['DR. B12: Halt. State your hypothesis.', 'DR. B12: I require peer-reviewed proof that kindness scales.'],
             after: ['DR. B12: The data is... undeniable.', 'DR. B12: The CHEF awaits. He is far less evidence-based than I am.'] } },
         { type: 'npc', id: 'gym_leader', sprite: 'chef', x: 6, y: 2, dir: 'down', move: 'static',
-          trainer: { class: 'CHEF', name: 'CHEF', level: 22, sight: 0, music: 'gym',
+          trainer: { class: 'CHEF', name: 'CHEF', level: 22, sight: 0, music: 'gym', victoryMusic: 'gymvictory',
+            requires: 'gym_sci', requiresLines: ['CHEF: You haven\'t even convinced DR. B12 yet.', 'CHEF: Come back when the SCIENCE is on your side.'],
             intro: ['CHEF: So. YOU are the one feeding my ingredients.', 'CHEF: In MY city? Prove that kindness has FLAVOR!'],
             after: ['CHEF: Plant-based. Chef\'s kiss. My new menu launches tonight.'], onWin: 'gym_win' } },
       ],
@@ -218,7 +219,7 @@
       objects: [
         { type: 'warp', x: 4, y: 7, map: 'violet', tx: 8, ty: 32, dir: 'down' },
         { type: 'npc', team: 'swimmer', id: 'vh1_swimmer', x: 5, y: 4, dir: 'down', move: 'static',
-          dialog: ['SWIMMER: The pool here is heated!', 'SWIMMER: Jump in, just do it, it\'ll be fine!'] },
+          dialog: ['SWIMMER: The pool at AVA is heated!', 'SWIMMER: Jump in, just do it, it\'ll be fine!'] },
       ],
     };
   }

@@ -41,7 +41,7 @@
 
   // ---- Flavor NPCs that reference James
   mk('berliner', 'TOURIST', 'girl', { t: P.yellow, h: P.red }, ['TOURIST: I\'m visiting from BERLIN! The vegan food there is the best in the world.', 'TOURIST: Don\'t tell LONDON I said that. LONDON is also great. Ugh, they\'re both great.'], { sprite: 'girl' });
-  mk('cinephile', 'CINEPHILE', 'man', { t: P.black, h: P.black }, ['CINEPHILE: I only watch world cinema. Subtitled. Preferably in black and white.', 'CINEPHILE: PALLET TOWN is my favorite film.']);
+  mk('cinephile', 'CINEPHILE', 'man', { t: P.black, h: P.black }, ['NICK: Have you seen KATE? She yelled "DESIGN THIS" and I haven\'t seen her for 3 days since.']);
   mk('swimmer', 'SWIMMER', 'boy', { t: P.blue, h: P.blond }, ['SWIMMER: I swim every morning. Rain or shine. Duck or no duck.']);
   mk('pigeonfan', 'PIGEON FAN', 'oldman', {}, ['PIGEON FAN: Pigeons are underrated. Iridescent. Loyal. They find their way home from anywhere.', 'PIGEON FAN: There is a legendary one in this city. Bring SEEDS.']);
 })();

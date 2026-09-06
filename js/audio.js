@@ -1142,13 +1142,18 @@
     trainer: { elId: 'bgm-trainer', fallback: 'trainer', restart: true },  // skeptic debates
     rival:   { elId: 'bgm-rival',   fallback: 'trainer', restart: true },  // DAVID turning up
     victory: { elId: 'bgm-victory', fallback: 'victory', restart: true },  // winning one over
-    lofi:    { elId: 'bgm-lofi',    fallback: 'title' }                    // LOFI mode: the whole soundtrack
+    lofi:    { elId: 'bgm-lofi',    fallback: 'title' },                   // LOFI mode: the whole soundtrack
+    hurry:   { elId: 'bgm-hurry',   fallback: 'lab' },                     // OAT hurrying you to the lab
+    gym:     { elId: 'bgm-gym',     fallback: 'gym',     restart: true },  // the CHEF, gym leader
+    gymvictory: { elId: 'bgm-gymvictory', fallback: 'victory', restart: true }  // ...and beating him
   };
 
   // Recorded one-shots that stand in for the synthesized sfx of the same name.
   // They run through sfxBus, so they obey mute and volume like every other sound.
   var SFX_STREAMS = {
-    levelup: { elId: 'sfx-levelup' }
+    levelup:  { elId: 'sfx-levelup' },
+    rescue:   { elId: 'sfx-obtained' },                    // an animal joins you
+    item:     { elId: 'sfx-item', fallback: 'pickup' }     // you find or are given an item
   };
   var streamTrim = function (def) { return def.trim == null ? STREAM_TRIM : def.trim; };
   var streamSrc = {};       // elId -> MediaElementAudioSourceNode (one per element, forever)
@@ -1342,7 +1347,7 @@
   AUDIO.currentMusic = function () { return state.currentId || null; };
 
   AUDIO.sfx = function (id) {
-    if (SFX_STREAMS[id] && playSfxStream(id)) return;
+    if (SFX_STREAMS[id]) { if (playSfxStream(id)) return; id = SFX_STREAMS[id].fallback || id; }
     var ctx = ensureCtx();
     if (!ctx) return;
     var fn = SFX[id];
