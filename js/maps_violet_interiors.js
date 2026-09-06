@@ -31,7 +31,6 @@
       rows: r.rows(),
       objects: [
         { type: 'warp', x: 7, y: 9, map: 'violet', tx: 8, ty: 6, dir: 'down' },
-        { type: 'npc', team: 'elizabeth', id: 'vs_elizabeth', x: 4, y: 5, dir: 'down', move: 'wander', range: 2 },
         { type: 'npc', team: 'jennifer', id: 'vs_jennifer', x: 10, y: 6, dir: 'down', move: 'wander', range: 2 },
         { type: 'npc', id: 'vs_reception', sprite: 'woman', x: 7, y: 6, dir: 'down', move: 'static',
           dialog: ['Welcome to VIOLET STUDIOS!', 'Creativity for a kinder world. Take a sticker.'] },

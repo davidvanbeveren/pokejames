@@ -80,7 +80,6 @@
           after: ['CHEESE LOVER: Hm. Your animal seems happier than my fridge.'] } },
 
       // ---- friendly NPCs
-      { type: 'npc', team: 'elizabeth', id: 'route2_elizabeth', x: 6, y: 17, dir: 'down', move: 'wander', range: 2 },
       { type: 'npc', id: 'route2_kid', sprite: 'kid', x: 13, y: 7, dir: 'left', move: 'wander', range: 2,
         dialog: ['ANNIKA: Have you met my little EZRA?', 'ANNIKA: Pay the belly rub tax now, or face the consequences.'] },
 
