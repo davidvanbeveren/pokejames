@@ -194,6 +194,7 @@
         { type: 'interact', x: 14, y: 9, text: ['A present that giggles slightly. It might contain a chick.'] },
         { type: 'interact', x: 8, y: 2, text: G => ['Wow, the cake is vegan!', 'Wait... ' + G.state.rival + ' already took the first slice...'] },
         ...guestObjects,
+        { type: 'npc', id: 'hall_abbie', name: 'ABBIE', sprite: 'abbie', x: 7, y: 3, dir: 'down', move: 'look', dialog: G => ['ABBIE: I have known about this for WEEKS. Do you know how hard it is to keep a secret from you?', 'ABBIE: Happy birthday, ' + G.state.name + '. Now go and eat some cake.'] },
         { type: 'npc', id: 'hall_bunny', sprite: 'ow_bunny', animal: true, x: 5, y: 6, dir: 'down', move: 'wander', range: 1, dialog: ['Binky! (Wearing a tiny party hat.)'] },
         { type: 'npc', id: 'hall_piglet', sprite: 'ow_piglet', animal: true, x: 10, y: 6, dir: 'down', move: 'wander', range: 1, dialog: ['Oink! (It has a party hat.)'] },
         { type: 'npc', id: 'hall_chick', sprite: 'ow_chick', animal: true, x: 9, y: 5, dir: 'down', move: 'wander', range: 1, dialog: ['Peep! (Confetti in its feathers.)'] },

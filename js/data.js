@@ -125,7 +125,7 @@
       taunt: 'I will need to see peer-reviewed evidence.', win: 'The data... is compelling.', after: 'I am writing a paper on animal sentience now.' },
     CHEF:        { name: 'CHEF',         sprite: 'front_chef',       ow: 'chef',    base: { hp: 85, atk: 60, def: 65 }, weak: 'HEART', resist: 'CUTE',  prize: 200,
       args: [['MY RESTAURANT', 50, '{S} bellowed "In MY restaurant?!"'], ['FLAVOR IS KING', 55, '{S} declared that FLAVOR IS KING.'], ['BUTTER IN EVERYTHING', 60, '{S} put butter in everything.']],
-      taunt: 'Vegan food? In MY kitchen? Prove it!', win: 'This... this is the best dish I have ever tasted.', after: 'My new menu is 100% plant-based. Chef\'s kiss.' },
+      taunt: 'Vegan food? In MY kitchen? Not today!', win: 'This... this is the best dish I have ever tasted.', after: 'My new menu is 100% plant-based. Chef\'s kiss.' },
     RIVAL:       { name: 'DAVID',        sprite: 'front_rival',      ow: 'hoodie',  base: { hp: 55, atk: 55, def: 50 }, weak: null, resist: null, prize: 100, rival: true,
       args: [['BIG IDEA', 40, '{S} pitched a BIG IDEA at 2 AM.'], ['ONE MORE FEATURE', 45, '{S} asked for just one more feature.'], ['HANDPAN SOLO', 35, '{S} played a handpan solo.']],
       taunt: 'Let\'s see whose animal is happier!', win: 'Okay, okay. Yours is happier.', after: 'I still think mine is cuter.' },

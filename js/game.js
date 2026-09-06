@@ -553,20 +553,37 @@
     yield* G.wait(60);
     yield* say(['KATE: We made you a game. It has ' + Object.keys(DATA.SPECIES).length + ' animals and zero nutritional value.']);
     yield* say([G.state.rival + ': I told you something was happening in VIOLET CITY!']);
-    yield* say(['GABRIELĖ: The cake is vegan. The NOOCH is vegan. Even the pixels are vegan.']);
+    yield* say(['ABBIE: The cake is vegan. The NOOCH is vegan. Even the pixels are vegan.']);
     yield* say(['VIKRAM: Bella says woof. That\'s "happy birthday" in dog.']);
     yield* say(['EVERYONE: Thank you for everything you do for the animals... and for us!']);
     // big banner window
-    const w = { fullscreen: false, t: 0, update() { this.t++; }, draw() { const s = 2; const t1 = 'HAPPY BIRTHDAY'; const t2 = G.state.name + '!'; UI.drawTextScaled(t1, Math.round(G.VW / 2 - t1.length * 8), 12, s, G.era === 0 ? G.DMG[0] : (Math.floor(this.t / 10) % 2 ? '#c03060' : '#8a5cd6')); UI.drawTextScaled(t2, Math.round(G.VW / 2 - t2.length * 8), 34, s, G.era === 0 ? G.DMG[0] : '#8a5cd6'); } };
-    G.push(w); yield* G.wait(200); G.pop(w);
+    yield* S.birthdayBanner();
     yield* say(['A birthday jingle plays. Someone is crying. It is DAVID.']);
     yield* S.credits();
     yield* say(['The party continues! Talk to everyone. Happy Birthday!']);
     return true;
   };
+  S.birthdayBanner = function* () {
+    const CC = ['#ffd83a', '#ff5fa2', '#8a5cd6', '#39c7b8', '#ffffff'];
+    const conf = [];
+    for (let i = 0; i < 48; i++) conf.push({ x: Math.random() * G.VW, y: -Math.random() * G.VH, vy: 0.5 + Math.random() * 0.7, ph: Math.random() * 60, c: i % CC.length });
+    const w = { fullscreen: false, t: 0,
+      update() { this.t++; for (const p of conf) { p.y += p.vy; p.x += Math.sin((this.t + p.ph) / 14) * 0.5; if (p.y > G.VH) { p.y = -4; p.x = Math.random() * G.VW; } } },
+      draw() {
+        for (const p of conf) { const flat = Math.floor((this.t + p.ph) / 7) % 2; G.fillRect(Math.round(p.x), Math.round(p.y), flat ? 3 : 2, flat ? 2 : 3, G.era === 0 ? G.DMG[p.c % 2] : CC[p.c]); }
+        const s = 2, t1 = 'HAPPY BIRTHDAY', t2 = G.state.name + '!';
+        const x1 = Math.round(G.VW / 2 - t1.length * 8), x2 = Math.round(G.VW / 2 - t2.length * 8);
+        if (G.era === 0) { UI.drawTextScaled(t1, x1, 12, s, G.DMG[0]); UI.drawTextScaled(t2, x2, 34, s, G.DMG[0]); return; }
+        UI.drawTextScaled(t1, x1 + 2, 14, s, '#3a2a6a'); UI.drawTextScaled(t2, x2 + 2, 36, s, '#3a2a6a');   // shadow keeps the yellow readable
+        UI.drawTextScaled(t1, x1, 12, s, Math.floor(this.t / 10) % 2 ? '#fff3a0' : '#ffd83a');
+        UI.drawTextScaled(t2, x2, 34, s, '#ffd83a');
+      } };
+    G.push(w); yield* G.wait(200); G.pop(w);
+  };
   S.credits = function* () {
     const lines = ['HACKTIVISTS', 'VIOLET VERSION', '', 'a birthday game for', 'JAMES MORGAN', 'Executive Director', 'Vegan Hacktivists', '', 'made with ♥ by', 'the Vegan Hacktivists', '& Violet Studios teams', '', 'STARRING', 'Aaron Cahill', 'Chloë Cudaback', 'David van Beveren', 'Dee Cox', 'Elizabeth Leach', 'Gabrielė Bernotaitė', 'Jérémy Touati', 'Kate Rodman', 'Lucas Barbosa', 'Luuly Truong', 'Michael Webermann', 'Mike Wigmore', 'Richie Manandhar-Richardson', 'Steven Rouk', 'Thomas van den Heuvel', 'Tobias Frohme', 'Vikram Singh', 'Ximena Rodríguez', '', 'and every animal', 'you rescued', '', 'No animals were harmed.', 'Several were fed.', '', 'HAPPY BIRTHDAY!', '♥ ♥ ♥'];
-    const w = { fullscreen: true, t: 0, closed: false, update() { this.t += G.input.held('a') ? 3 : 0.5; /* half a pixel a frame: slow enough to read */ if (this.t > lines.length * 14 + G.VH) this.closed = true; if (G.input.pressed('start')) this.closed = true; }, draw() { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[0] : '#101018'); lines.forEach((l, i) => { const y = G.VH - this.t + i * 14; if (y > -10 && y < G.VH) G.drawText(l, Math.round(G.VW / 2 - l.length * 4), y, '#ffffff'); }); } };
+    const w = { fullscreen: true, t: 0, closed: false, update() { this.t += G.input.held('a') ? 3 : 0.5; /* half a pixel a frame: slow enough to read */ if (this.t > lines.length * 14 + G.VH) this.closed = true; if (G.input.pressed('start')) this.closed = true; }, draw() { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[0] : '#101018'); lines.forEach((l, i) => { const y = G.VH - this.t + i * 14; if (y > -10 && y < G.VH) G.drawText(l, Math.round(G.VW / 2 - l.length * 4), y, '#ffffff'); });
+        if (!G.input.held('a')) { const h = 'HOLD SPACE = FASTER'; G.fillRect(0, G.VH - 14, G.VW, 14, G.era === 0 ? G.DMG[0] : '#101018'); G.drawText(h, Math.round(G.VW / 2 - h.length * 4), G.VH - 11, G.era === 0 ? G.DMG[2] : '#8a8aa0'); } } };
     G.push(w); yield* G.fadeIn(1); while (!w.closed) yield null; G.pop(w);
   };
 
