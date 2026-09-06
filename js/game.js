@@ -478,7 +478,7 @@
     G.entities.push(rival);
     yield* G.walk(rival, ['down', 'down', 'down']);
     p.dir = 'up';
-    yield* say([G.state.rival + ': My animals are SO happy. They have their own Discord server.', G.state.rival + ': Let\'s see how yours are doing!']);
+    yield* say([G.state.rival + ': My animals are SO happy. I track it in my Impact Tracker!', G.state.rival + ': Let\'s see how yours are doing!']);
     const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 9, music: 'trainer', taunt: 'Let\'s see how yours are doing!', win: 'Okay... they do look happy. Fine!' });
     if (A()) A().playMusic(G.map.music);
     if (r === 'won') { yield* say([G.state.rival + ': Hmph. I\'ll be in VIOLET CITY. Something is happening there... you\'ll see!']); yield* G.walk(rival, ['up', 'up', 'up', 'up']); }
