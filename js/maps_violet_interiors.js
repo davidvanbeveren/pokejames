@@ -191,8 +191,9 @@
       objects: [
         { type: 'warp', x: 8, y: 11, map: 'violet', tx: 33, ty: 26, dir: 'down' },
         { type: 'trigger', x: 8, y: 9, w: 1, h: 1, script: 'party_enter' },
-        { type: 'interact', x: 1, y: 4, text: [G => ['A present. The tag reads: "To ' + G.state.name + ', from all of us."']] },
+        { type: 'interact', x: 1, y: 4, text: G => ['A present. The tag reads: "To ' + G.state.name + ', from all of us."'] },
         { type: 'interact', x: 14, y: 9, text: ['A present that giggles slightly. It might contain a chick.'] },
+        { type: 'interact', x: 8, y: 2, text: G => ['Wow, the cake is vegan!', 'Wait... ' + G.state.rival + ' already took the first slice...'] },
         ...guestObjects,
         { type: 'npc', id: 'hall_bunny', sprite: 'ow_bunny', animal: true, x: 5, y: 6, dir: 'down', move: 'wander', range: 1, dialog: ['Binky! (Wearing a tiny party hat.)'] },
         { type: 'npc', id: 'hall_piglet', sprite: 'ow_piglet', animal: true, x: 10, y: 6, dir: 'down', move: 'wander', range: 1, dialog: ['Oink! (It has a party hat.)'] },

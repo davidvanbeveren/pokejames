@@ -84,12 +84,17 @@ function bfs(tx, ty, allowTarget) {
 }
 function stepDir(d) { const x = P().x, y = P().y, map = G.map.id; let g = 0; G.input.set(d, true); while (g++ < 30 && P().x === x && P().y === y && !P().moving && !P().jumping && !G.script.cur && G.map.id === map) G.tick(1); G.input.set(d, false); let h = 0; while (h++ < 60 && (P().moving || P().jumping)) G.tick(1); G.tick(2); return !(P().x === x && P().y === y && G.map.id === map); }
 function goTo(tx, ty, opts) {
-  opts = opts || {}; const startMap = G.map.id; let tries = 0;
+  opts = opts || {}; const startMap = G.map.id; let tries = 0, blocked = 0;
   while (tries++ < 60) {
     if (G.map.id !== startMap) return 'warped';
     if (P().x === tx && P().y === ty) return 'arrived';
     const path = bfs(tx, ty, opts.stopAdjacent);
-    if (!path) { fail(`no path on ${G.map.id} from ${P().x},${P().y} to ${tx},${ty}`); return 'nopath'; }
+    if (!path) {
+      // NPCs count as walls. A greeter who just walked over and stopped in a doorway
+      // wanders off within a couple of seconds, so wait like a player would before giving up.
+      if (blocked++ < 10) { for (let i = 0; i < 60; i++) { G.tick(1); if (G.ui.length || G.script.cur) handleUI(); } continue; }
+      fail(`no path on ${G.map.id} from ${P().x},${P().y} to ${tx},${ty}`); return 'nopath';
+    }
     const steps = opts.stopAdjacent ? path.slice(0, -1) : path;
     if (!steps.length) return 'arrived';
     let interrupted = false;
@@ -115,7 +120,11 @@ function talkTo(ent) { // stand adjacent (or across a counter) and press A
 }
 function exitVia(edge) { const ex = G.map.exits.find(e => e.edge === edge); if (!ex) { fail('no ' + edge + ' exit on ' + G.map.id); return; } const x = ex.from, y = edge === 'north' ? 0 : G.map.h - 1; const from = G.map.id; goTo(x, y); if (G.map.id === from) { stepDir(edge === 'north' ? 'up' : 'down'); settle(); } if (G.map.id === from) fail('exit ' + edge + ' from ' + from + ' did not warp'); }
 function enterDoor(targetMap) { const w = findObj(o => o.type === 'warp' && o.map === targetMap); if (!w) { fail('no door to ' + targetMap + ' on ' + G.map.id); return false; } goTo(w.x, w.y); settle(); if (G.map.id !== targetMap) { fail('door to ' + targetMap + ' did not warp (at ' + G.map.id + ')'); return false; } return true; }
-function leaveInterior() { const w = findObj(o => o.type === 'warp' && MAPS[o.map] && !MAPS[o.map].indoor); if (!w) { fail('no exit warp on ' + G.map.id); return; } const from = G.map.id; goTo(w.x, w.y); settle(); if (G.map.id === from) fail('exit warp on ' + from + ' did not fire'); }
+function leaveInterior() { const w = findObj(o => o.type === 'warp' && MAPS[o.map] && !MAPS[o.map].indoor); if (!w) { fail('no exit warp on ' + G.map.id); return; } const from = G.map.id; goTo(w.x, w.y); settle();
+  // entering a building can land you ON its exit mat, so 'walk to the mat' does nothing;
+  // pressing into the bottom edge while standing on an indoor warp is how a player leaves
+  if (G.map.id === from) { stepDir('down'); settle(); }
+  if (G.map.id === from) fail('exit warp on ' + from + ' did not fire'); }
 function healAtCenter(town) { if (G.map.id !== town + '_center') { if (G.map.id !== town) travelTo(town); if (!enterDoor(town + '_center')) return; } const nurse = G.entities.find(e => e.def && e.def.script === 'center'); if (!nurse) { fail('no nurse in ' + G.map.id); leaveInterior(); return; } talkTo(nurse); const ok = G.state.party.every(a => a.hp === a.maxHp); if (!ok) fail('center did not heal'); else vlog('healed at', G.map.id); leaveInterior(); }
 function buyAtMart(town, item) { if (G.map.id !== town) travelTo(town); if (!enterDoor(town + '_mart')) return; const clerk = G.entities.find(e => e.def && e.def.script === 'mart'); if (!clerk) { fail('no clerk in ' + G.map.id); leaveInterior(); return; } const before = G.itemQty(item); wantBuy.item = item; talkTo(clerk); wantBuy.item = null; if (G.itemQty(item) <= before) fail('could not buy ' + item + ' at ' + G.map.id); else vlog('bought', item); leaveInterior(); }
 const CHAIN = ['pallet', 'route1', 'verdant', 'route2', 'violet'];

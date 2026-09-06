@@ -110,6 +110,11 @@
       { type: 'warp', x: gym.door.x, y: gym.door.y, map: 'violet_gym', tx: 6, ty: 11, dir: 'up' },
       { type: 'warp', x: hall.door.x, y: hall.door.y, map: 'violet_hall', tx: 8, ty: 11, dir: 'up' },
       { type: 'trigger', x: hall.door.x, y: hall.door.y + 1, w: 1, h: 1, script: 'hall_door' },
+      // the doorman blocks the hall until you've seen both headquarters, then steps aside
+      { type: 'npc', id: 'hall_doorman', x: hall.door.x, y: hall.door.y + 1, sprite: 'man', pal: { t: '#303040:1', h: '#8a5a30:1' }, dir: 'down', move: 'static', unless: 'hq_tour_done',
+        dialog: ['Have you seen the VH and VIOLET headquarters? No?', 'Then you can\'t come in here yet!'] },
+      { type: 'npc', id: 'hall_doorman_ok', x: hall.door.x + 1, y: hall.door.y + 1, sprite: 'man', pal: { t: '#303040:1', h: '#8a5a30:1' }, dir: 'left', move: 'static', if: 'hq_tour_done',
+        dialog: ['Pretty cool, right? You can go in now!', 'Sorry, I was grumpy because my PIGEON pooped on the couch again!'] },
       { type: 'warp', x: house1.door.x, y: house1.door.y, map: 'violet_house1', tx: 4, ty: 7, dir: 'up' },
       { type: 'warp', x: house2.door.x, y: house2.door.y, map: 'violet_house2', tx: 4, ty: 7, dir: 'up' },
 

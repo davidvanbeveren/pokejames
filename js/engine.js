@@ -17,11 +17,14 @@
   ctx.imageSmoothingEnabled = false;
   G.ctx = ctx;
   G.canvas = canvas;
+  // The screen is a Game Boy sitting in the middle of the page, not a monitor-filling
+  // canvas: whole-pixel scale, never taller than MAX_CANVAS_H, with room around it.
+  G.MAX_CANVAS_H = 576;   // 4x the Game Boy screen; 3x the GBA one
   function fitCanvas() {
     const wrap = document.getElementById('game');
-    const availW = wrap.clientWidth || window.innerWidth;
-    const availH = wrap.clientHeight || window.innerHeight;
-    let scale = Math.floor(Math.min(availW / G.VW, availH / G.VH));
+    const availW = (wrap.clientWidth || window.innerWidth) * 0.9;
+    const availH = (wrap.clientHeight || window.innerHeight) * 0.85;
+    let scale = Math.floor(Math.min(availW / G.VW, availH / G.VH, G.MAX_CANVAS_H / G.VH));
     if (scale < 1) scale = Math.min(availW / G.VW, availH / G.VH);
     canvas.style.width = Math.floor(G.VW * scale) + 'px';
     canvas.style.height = Math.floor(G.VH * scale) + 'px';
@@ -613,7 +616,8 @@
   // generator helpers
   G.wait = function* (n) { for (let i = 0; i < n; i++) yield null; };
   G.fadeOut = function* (frames) { frames = frames || 16; for (let i = 1; i <= frames; i++) { G.fade.alpha = i / frames; yield null; } G.fade.alpha = 1; };
-  G.fadeIn = function* (frames) { frames = frames || 16; for (let i = frames - 1; i >= 0; i--) { G.fade.alpha = i / frames; yield null; } G.fade.alpha = 0; };
+  G.fadeFloor = 0;   // a map can keep the room dim (the hall before the surprise)
+  G.fadeIn = function* (frames) { frames = frames || 16; for (let i = frames - 1; i >= 0; i--) { G.fade.alpha = Math.max(G.fadeFloor, i / frames); yield null; } G.fade.alpha = G.fadeFloor; };
   G.walk = function* (e, dirs, speed) {
     for (const d of dirs) {
       if (d === 'wait') { yield* G.wait(16); continue; }

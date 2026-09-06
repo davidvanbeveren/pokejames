@@ -243,7 +243,14 @@
   };
 
   // ---------- map hooks ----------
-  S.onEnterMap = function (id) { };
+  S.onEnterMap = function (id) {
+    // the hall is dark from the first step until the surprise; afterwards the ending theme plays there
+    G.fadeFloor = (id === 'violet_hall' && !G.flag('party_done')) ? 0.75 : 0;
+    if (id === 'violet_hall' && G.flag('party_done') && A()) A().playMusic('party');
+    if (id === 'vh_hq') G.flag('visited_vh_hq', true);
+    if (id === 'violet_studios') G.flag('visited_violet_studios', true);
+    if (G.flag('visited_vh_hq') && G.flag('visited_violet_studios')) G.flag('hq_tour_done', true);
+  };
   S.onEraUnlock = function* (prevEra, newEra) {
     if (G.flag('era' + newEra + '_seen')) { G.setEra(newEra); G.refreshFollower(); return; }
     G.setEra(prevEra);
@@ -466,7 +473,7 @@
     yield* S.approach(rival);
     yield* say([G.state.rival + ': So you think you\'re hot stuff after your OPERATIONS DIRECTOR days?',
       G.state.rival + ': Let me offer you a slice of vegan humble pie!']);
-    const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 16, music: 'trainer',
+    const r = yield* BATTLE.trainer({ skeptic: 'RIVAL', name: G.state.rival, level: 16, music: 'finalrival',
       taunt: 'Let me offer you a slice of vegan humble pie!',
       win: 'Okay. That pie was for me. I see that now.' });
     if (A()) A().playMusic(G.map.music);
@@ -513,7 +520,7 @@
     yield* say(['...', 'It\'s dark in here.']);
     yield* G.walk(p, ['up', 'up']);
     yield* say(['...?']);
-    G.flash = 1.5; G.fade.alpha = 0;
+    G.flash = 1.5; G.fadeFloor = 0; G.fade.alpha = 0;
     if (A()) { A().sfx('cake'); A().playMusic('party'); }
     yield* G.wait(20);
     yield* say(['EVERYONE: SURPRISE!!!', 'EVERYONE: HAPPY BIRTHDAY, ' + G.state.name + '!']);
@@ -533,7 +540,7 @@
     return true;
   };
   S.credits = function* () {
-    const lines = ['HACKTIVISTS', 'VIOLET VERSION', '', 'a birthday game for', 'JAMES MORGAN', 'Executive Director', 'Vegan Hacktivists', '', 'made with ♥ by', 'the Vegan Hacktivists', '& Violet Studios teams', '', 'STARRING', 'David van Beveren', 'Kate Rodman', 'Gabrielė Bernotaitė', 'Michael Webermann', 'Vikram Singh', 'Tobias Frohme', 'Jérémy Touati', 'Steven Rouk', 'Richie Manandhar-Richardson', 'Mike Wigmore', 'Aaron Cahill', 'Ximena Rodríguez', 'Elizabeth Leach', 'Thomas van den Heuvel', 'Luuly Truong', 'Lucas Barbosa', 'Chloë Cudaback', 'Dee Cox', '', 'and every animal', 'you rescued', '', 'No animals were harmed.', 'Several were fed.', '', 'HAPPY BIRTHDAY!', '♥ ♥ ♥'];
+    const lines = ['HACKTIVISTS', 'VIOLET VERSION', '', 'a birthday game for', 'JAMES MORGAN', 'Executive Director', 'Vegan Hacktivists', '', 'made with ♥ by', 'the Vegan Hacktivists', '& Violet Studios teams', '', 'STARRING', 'Kate Rodman', 'Gabrielė Bernotaitė', 'Michael Webermann', 'Vikram Singh', 'Tobias Frohme', 'Jérémy Touati', 'Steven Rouk', 'Richie Manandhar-Richardson', 'Mike Wigmore', 'Aaron Cahill', 'Ximena Rodríguez', 'Elizabeth Leach', 'Thomas van den Heuvel', 'Luuly Truong', 'Lucas Barbosa', 'Chloë Cudaback', 'Dee Cox', 'David van Beveren', '', 'and every animal', 'you rescued', '', 'No animals were harmed.', 'Several were fed.', '', 'HAPPY BIRTHDAY!', '♥ ♥ ♥'];
     const w = { fullscreen: true, t: 0, closed: false, update() { this.t += G.input.held('a') ? 3 : 1; if (this.t > lines.length * 14 + G.VH) this.closed = true; if (G.input.pressed('start')) this.closed = true; }, draw() { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[0] : '#101018'); lines.forEach((l, i) => { const y = G.VH - this.t + i * 14; if (y > -10 && y < G.VH) G.drawText(l, Math.round(G.VW / 2 - l.length * 4), y, '#ffffff'); }); } };
     G.push(w); yield* G.fadeIn(1); while (!w.closed) yield null; G.pop(w);
   };

@@ -49,6 +49,9 @@ if (G.map.id === 'violet') {
   healAtCenter('violet'); buyAtMart('violet', 'SUPER NOOCH'); buyAtMart('violet', 'SEEDS'); buyAtMart('violet', 'SEEDS');
   const statue = findObj(o => o.type === 'interact' && o.script === 'pigeon_statue'); if (statue) { setRescueBudget(1); goTo(statue.x, statue.y, { stopAdjacent: true }); faceAndPress(statue.x, statue.y); log('pigeon:', G.flag('pigeon_done'), party()); } else fail('no pigeon statue');
   // hall locked
+  // the doorman won't let you near the hall until you've been inside both headquarters
+  for (const hq of ['violet_studios', 'vh_hq']) { travelTo('violet'); if (enterDoor(hq)) { settle(); leaveInterior(); } }
+  log('toured HQs:', G.flag('hq_tour_done'), party());
   const hallDoor = findObj(o => o.type === 'warp' && o.map === 'violet_hall'); if (hallDoor) { goTo(hallDoor.x, hallDoor.y + 2); stepDir('up'); settle(); if (G.map.id === 'violet_hall') fail('hall should be locked before the badge'); else if (P().y !== hallDoor.y + 2) fail('hall_door lock did not push the player back (at ' + P().x + ',' + P().y + ')'); else vlog('hall locked as expected'); } else fail('no hall door');
   healAtCenter('violet');
   let gymTries = 0;
