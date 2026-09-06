@@ -77,6 +77,26 @@
       while (e.moving) yield null;
     }
   };
+  // Walk two people to two spots, alternating steps so one appears to lead the other.
+  // Works from wherever they start (the lab has two ways in), and gives up cleanly if
+  // either is boxed in.
+  S.escortTo = function* (lead, lx, ly, follower, fx, fy) {
+    const step = (e, tx, ty) => {
+      const dx = tx - e.x, dy = ty - e.y;
+      const h = dx > 0 ? 'right' : dx < 0 ? 'left' : null, v = dy > 0 ? 'down' : dy < 0 ? 'up' : null;
+      for (const d of (Math.abs(dx) > Math.abs(dy) ? [h, v] : [v, h])) if (d && G.startMove(e, d, { force: true })) return true;
+      return false;
+    };
+    const there = (e, x, y) => e.x === x && e.y === y;
+    let guard = 0;
+    while (guard++ < 40 && !(there(lead, lx, ly) && there(follower, fx, fy))) {
+      const a = !there(lead, lx, ly) && step(lead, lx, ly);
+      while (lead.moving) yield null;
+      const b = !there(follower, fx, fy) && step(follower, fx, fy);
+      while (follower.moving) yield null;
+      if (!a && !b) break;
+    }
+  };
   // Lead someone across a room: the follower steps into the tile the leader just
   // left. (A moving entity occupies both its tiles, so they cannot step at once.)
   S.leadAlong = function* (lead, dirs, follower) {
@@ -338,9 +358,15 @@
     if (labProf) { labProf.x = 5; labProf.y = 7; labProf.dir = 'up'; }
     yield* G.fadeIn(16);
     yield* say(['PROF. OAT: Come on through. They are right over here.']);
-    if (labProf) {
-      yield* S.leadAlong(labProf, ['up', 'left'], G.player);   // he leads, you follow him to the table
-      labProf.dir = 'up'; G.player.dir = 'up';
+    yield* S.showTable(labProf);
+    return true;
+  };
+  // Used both when OAT brings you back from the north edge and when you find him in
+  // the lab first: he walks you to the table, presents the animals, DAVID butts in.
+  S.showTable = function* (prof) {
+    if (prof) {
+      yield* S.escortTo(prof, 4, 6, G.player, 5, 6);   // he leads, you end up facing the balls
+      prof.dir = 'up'; G.player.dir = 'up';
       yield* G.wait(12);
     }
     yield* say(['PROF. OAT: ' + G.state.name + '! Here, on the table, are 3 animals I rescued this morning.', 'They each need a home... and a friend. Go on! Choose one!']);
@@ -348,18 +374,17 @@
     if (labRival) {
       G.faceEach(labRival, G.player);
       yield* say([G.state.rival + ': Aww, but I want to pick first!']);
-      if (labProf) G.faceEach(labProf, labRival);
+      if (prof) G.faceEach(prof, labRival);
       yield* say(['PROF. OAT: Patience, ' + G.state.rival + '. God damn.']);
-      if (labProf) labProf.dir = 'up';
+      if (prof) prof.dir = 'up';
     }
     G.flag('choose_starter', true);
-    return true;
   };
   S.lab_prof = function* (e) {
     if (G.flag('starter')) { yield* say(['PROF. OAT: Head north to VERDANT TOWN! The SANCTUARY CENTER there heals tired animals.', 'And say hi to the team for me!']); return; }
     if (G.flag('choose_starter')) { yield* say(['PROF. OAT: Go on! Pick an animal from the table!']); return; }
-    yield* say(['PROF. OAT: Oh, ' + G.state.name + '! I was about to come and find you.', 'Try heading north and I\'ll... no wait. Actually, come here. Look at the table!']);
-    G.flag('choose_starter', true);
+    yield* say(['PROF. OAT: Oh, ' + G.state.name + '! I was about to come and find you.', 'PROF. OAT: Come here. Look at the table!']);
+    yield* S.showTable(e);
   };
   S.pick_starter = function* (o) {
     if (G.flag('starter')) { yield* say(['The basket is empty. Just some hay.']); return; }
@@ -414,7 +439,7 @@
     G.flag('has_dex', true); G.addItem('NOOCH', 3); G.addItem('CARROT', 3); G.addItem('SEEDS', 3); G.addItem('APPLE', 2);
     if (A()) A().sfx('levelup');
     yield* say([G.state.name + ' got the FRIENDDEX, 3 NOOCH and some snacks!']);
-    yield* say(['PROF. OAT: In tall grass you\'ll meet hungry animals. FEED them or HELP them until they trust you.', 'Some people will argue with you. Let your animal\'s charm do the talking!', 'Now go! Head north to VERDANT TOWN. The team is waiting!']);
+    yield* say(['PROF. OAT: In tall grass you\'ll meet hungry animals. FEED them or HELP them until they trust you.', 'Some people will argue with you. Let your animal\'s charm do the talking!', 'Now go! Head north to VERDANT TOWN!']);
     G.flag('choose_starter', false);
   };
   S.mom = function* (e) {
@@ -540,7 +565,7 @@
     return true;
   };
   S.credits = function* () {
-    const lines = ['HACKTIVISTS', 'VIOLET VERSION', '', 'a birthday game for', 'JAMES MORGAN', 'Executive Director', 'Vegan Hacktivists', '', 'made with ♥ by', 'the Vegan Hacktivists', '& Violet Studios teams', '', 'STARRING', 'Lucas Barbosa', 'Gabrielė Bernotaitė', 'Aaron Cahill', 'Dee Cox', 'Chloë Cudaback', 'Tobias Frohme', 'Elizabeth Leach', 'Richie Manandhar-Richardson', 'Kate Rodman', 'Ximena Rodríguez', 'Steven Rouk', 'Vikram Singh', 'Jérémy Touati', 'Luuly Truong', 'David van Beveren', 'Thomas van den Heuvel', 'Michael Webermann', 'Mike Wigmore', '', 'and every animal', 'you rescued', '', 'No animals were harmed.', 'Several were fed.', '', 'HAPPY BIRTHDAY!', '♥ ♥ ♥'];
+    const lines = ['HACKTIVISTS', 'VIOLET VERSION', '', 'a birthday game for', 'JAMES MORGAN', 'Executive Director', 'Vegan Hacktivists', '', 'made with ♥ by', 'the Vegan Hacktivists', '& Violet Studios teams', '', 'STARRING', 'Aaron Cahill', 'Chloë Cudaback', 'David van Beveren', 'Dee Cox', 'Elizabeth Leach', 'Gabrielė Bernotaitė', 'Jérémy Touati', 'Kate Rodman', 'Lucas Barbosa', 'Luuly Truong', 'Michael Webermann', 'Mike Wigmore', 'Richie Manandhar-Richardson', 'Steven Rouk', 'Thomas van den Heuvel', 'Tobias Frohme', 'Vikram Singh', 'Ximena Rodríguez', '', 'and every animal', 'you rescued', '', 'No animals were harmed.', 'Several were fed.', '', 'HAPPY BIRTHDAY!', '♥ ♥ ♥'];
     const w = { fullscreen: true, t: 0, closed: false, update() { this.t += G.input.held('a') ? 3 : 0.5; /* half a pixel a frame: slow enough to read */ if (this.t > lines.length * 14 + G.VH) this.closed = true; if (G.input.pressed('start')) this.closed = true; }, draw() { G.fillRect(0, 0, G.VW, G.VH, G.era === 0 ? G.DMG[0] : '#101018'); lines.forEach((l, i) => { const y = G.VH - this.t + i * 14; if (y > -10 && y < G.VH) G.drawText(l, Math.round(G.VW / 2 - l.length * 4), y, '#ffffff'); }); } };
     G.push(w); yield* G.fadeIn(1); while (!w.closed) yield null; G.pop(w);
   };
