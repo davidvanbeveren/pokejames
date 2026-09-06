@@ -11,9 +11,8 @@
 
   // ---- Vegan Hacktivists
   mk('david', 'DAVID', 'hoodie', { t: P.purple, h: P.brown }, G => [
-    'DAVID: I founded VEGAN HACKTIVISTS in 2019 with one laptop and too much coffee.',
-    'DAVID: Then I hired someone better to run it. Best decision I ever made. Happy birthday, ' + G.state.name + '!',
-    'DAVID: Also I play the handpan now. Everyone is very supportive. Allegedly.']);
+    'DAVID: I founded VEGAN HACKTIVISTS in 2019 after watching DOMINION.',
+    'DAVID: Then I hired someone better to run it. Best decision I ever made. Happy birthday, ' + G.state.name + '!']);
   mk('michael', 'MICHAEL', 'man', { t: P.blue, h: P.brown }, ['MICHAEL: Strategic Initiatives Lead. That means I make spreadsheets that make things happen.', 'MICHAEL: Initiative for today: cake.']);
   mk('gabriele', 'GABRIELĖ', 'woman', { t: P.teal, h: P.dark }, ['GABRIELĖ: Communications Director. I write the words. All of them. Even these.', 'GABRIELĖ: Fuzzy caterpillars are the best animal. I said what I said.', 'GABRIELĖ: Burning out is not a productivity strategy. Go drink a matcha.']);
   mk('vikram', 'VIKRAM', 'man', { t: P.black, h: P.black, p: '#404040' }, ['VIKRAM: Product Design Director. I make sure everything we build is useful, usable, and kind.', 'VIKRAM: My dog BELLA reviewed this game. Two paws up.', 'VIKRAM: Tonight: a punk show. Tomorrow: the opera. Balance.']);
