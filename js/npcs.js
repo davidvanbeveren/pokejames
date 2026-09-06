@@ -14,7 +14,7 @@
     'DAVID: I founded VEGAN HACKTIVISTS in 2019 after watching DOMINION.',
     'DAVID: Then I hired someone better to run it. Best decision I ever made. Happy birthday, ' + G.state.name + '!']);
   mk('michael', 'MICHAEL', 'man', { t: P.blue, h: P.brown }, ['MICHAEL: Strategic Initiatives Lead. That means I make spreadsheets that make things happen.', 'MICHAEL: Initiative for today: cake.']);
-  mk('gabriele', 'GABRIELĖ', 'woman', { t: P.teal, h: P.dark }, ['GABRIELĖ: Communications Director. I write the words. All of them. Even these.', 'GABRIELĖ: Fuzzy caterpillars are the best animal. I said what I said.', 'GABRIELĖ: Burning out is not a productivity strategy. Go drink a matcha.']);
+  mk('gabriele', 'GABRIELĖ', 'woman', { t: P.teal, h: P.dark }, ['GABRIELĖ: Communications Director. I write the words. I even think in words!', 'GABRIELĖ: Fuzzy caterpillars are the best animal. I said what I said.', 'GABRIELĖ: Burning out is not a productivity strategy. Go drink a matcha.']);
   mk('vikram', 'VIKRAM', 'man', { t: P.black, h: P.black, p: '#404040' }, ['VIKRAM: Product Design Director. I make sure everything we build is useful, usable, and kind.', 'VIKRAM: My dog BELLA reviewed this game. Two paws up.', 'VIKRAM: Tonight: a punk show. Tomorrow: the opera. Balance.']);
   mk('kate', 'KATE', 'woman', { t: P.purple, h: P.blond }, ['KATE: Creative Director at VIOLET STUDIOS! I designed the logo. I designed ALL the logos.', 'KATE: Board game night is Tuesday. Bring snacks. Winning is optional. Snacks are not.']);
   mk('tobias', 'TOBIAS', 'hoodie', { t: P.green, h: P.blond }, ['TOBIAS: Senior Developer. I fixed a bug in this town this morning. You\'re welcome.', 'TOBIAS: Grüße aus Deutschland! Vegan currywurst is real and it is glorious.']);
